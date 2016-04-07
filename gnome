@@ -1,0 +1,13 @@
+# Change Gnome gdm login background
+
+The only one that worked for me on Arch Linux:
+
+    sudo -u gdm dbus-launch gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/gnome/picture.jpg'
+Then, you can verify it worked:
+
+    sudo -u gdm gsettings get org.gnome.desktop.screensaver picture-uri
+
+Or verify using dconf:
+
+    sudo -u gdm dconf read /org/gnome/desktop/screensaver/picture-uri
+
