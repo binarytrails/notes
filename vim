@@ -37,3 +37,8 @@
 * Spaces before a tab:
 
         / \+\ze\t
+
+# Vim clipboard
+
+> You do need to install the gvim package to get a Vim linked to libX11; but you don't need to use gvim. --Carpetsmoker
+
