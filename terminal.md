@@ -1,4 +1,14 @@
-# Find excluding directories
+# Finding
+
+## something inside all directory files
+
+    grep -Rn word dir
+
+## execute on all files inside a directory
+
+    find dir -type f -execdir somecommand {} \;
+
+## excluding directories
 
 Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR you_data_to_find (rest).
 
@@ -116,3 +126,4 @@ Here are some commands to help you start up
     Mod-q       Quit dvtm.
 
 (More commands)[http://www.brain-dump.org/projects/dvtm/]
+
