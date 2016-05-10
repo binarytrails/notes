@@ -1,9 +1,0 @@
-/ignore * JOINS PARTS QUITS
-
-# dumb current window buffer
-/window log on ~/logs/current
-/lastlog
-
-# docs for current [c]hannel and [u]ser modes
-/quote help cmode
-/quote help umode
