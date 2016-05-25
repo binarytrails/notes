@@ -6,8 +6,8 @@
     :retab              Replace tabs according to your settings
     :e ++ff=unix        Display CRLF as ^M
     :%s/\r//g           Remove ^M
-    
-    :set background=light                       Adjusts the colors for a ligher background
+
+    :set background=light
     :python import sys; print(sys.version)      Get the compiled python version
 
 # Keyboard shortcuts
@@ -19,24 +19,17 @@
 
     q:  list commands history
     q/  list searches history
+    
+# Keys
+
+    ctrl + v, tab       insert tab in insert mode
 
 # Show
 
-* All tabs:
-
-        /\t
-
-* Trailing whitespace:
-
-        /\s\+$
-
-* Trailing whitespace only after some text (ignores blank lines):
-
-        /\S\zs\s\+$
-
-* Spaces before a tab:
-
-        / \+\ze\t
+    /\t                 show all interpreted tabs (if spaces set then spaces)
+    /\s\+$              trailing whitespaces
+    /\S\zs\s\+$         trailing whitespaces + ignore empty lines
+    / \+\ze\t           spaces before tabs
 
 # Vim clipboard
 
