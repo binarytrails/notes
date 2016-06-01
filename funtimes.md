@@ -14,3 +14,7 @@ Instead, use *g++* or append *-lstdc++* to the gcc command:
 
     gcc class.cpp -lstdc++
 
+## Gcc linking order
+
+> Gcc's linker is a one pass linker which means the order of library flags matters. You want to list the libraries in reverse dependency order. In other words, if a depends on b, then b must appear before a in the linker flags.
+
