@@ -1,6 +1,10 @@
+
+[All build information](http://dl.ring.cx/docs/compiling_and_installing/index.html)
+
+
 # Daemon
 
-[How to build](https://tuleap.ring.cx/wiki/index.php?group_id=101&pagename=2.a-i+Build+Ring+daemon+on+Linux), 
+[How to build](https://tuleap.ring.cx/wiki/index.php?group_id=101&pagename=2.a-i+Build+Ring+daemon+on+Linux),
 [where to get](https://gerrit-ring.savoirfairelinux.com/#/admin/projects/ring-daemon)
 
     RING=$PWD/ring-daemon
@@ -21,7 +25,7 @@
     #make .gnutls .upnp ...
     # instead I had to:
     make .opendht
-    
+
     cd $RING
     # Now generate autotools configuration files
     ./autogen.sh
@@ -32,3 +36,29 @@
     # Install
     sudo make install
 
+# LRC
+
+[How to build](https://tuleap.ring.cx/wiki/index.php?pagename=Build%20LibRingClient%20%28LRC%29&group_id=101),
+[where to get](https://gerrit-ring.savoirfairelinux.com/#/admin/projects/ring-lrc)
+
+Build with activ debug.
+
+    cd $LIBRINGLIENT
+    mkdir build
+    cd build
+    cmake .. -DRING_BUILD_DIR=$RING/src -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug
+    make
+    sudo make install  
+
+# Gnome client
+
+[How to build](https://tuleap.ring.cx/wiki/index.php?group_id=101&pagename=Build+Gnome+Client+for+Ring),
+[where to get](https://gerrit-ring.savoirfairelinux.com/#/admin/projects/ring-client-gnome)
+
+Build with the build process link to LRC
+
+    mkdir build
+    cd build
+    cmake -DLibRingClient_PROJECT_DIR= [add_your_LRC_path_project_folder] ..
+    make
+    sudo make install
