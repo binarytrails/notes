@@ -1,0 +1,8 @@
+# Preferences > Settings - User
+
+    {
+        "tab_size": 4,
+        "translate_tabs_to_spaces": true,
+        "detect_indentation": false
+    }
+

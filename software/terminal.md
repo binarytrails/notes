@@ -2,11 +2,11 @@
 
 ## something inside all directory files
 
-    grep -Rn word dir
+    grep -Rn <word> <dir>
 
 ## execute on all files inside a directory
 
-    find dir -type f -execdir somecommand {} \;
+    find <dir> -type f -execdir <command> {} \;
 
 ## excluding directories
 
@@ -21,7 +21,7 @@ http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
     
 # Sha1sum check
 
-    echo "hash filename" | sha1sum -c
+    echo <hash> <file> | sha1sum -c
     
 # Converting with ffmpeg & avconv
     
@@ -34,12 +34,12 @@ http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
 
 # Get open window info
 
-    xprop -root | grep window\ id
-    xprop -id [id]
+    xprop -root | grep <window id>
+    xprop -id <id>
 
-# Apply afile attributes to bfile
+# Apply a file attributes to b
 
-    touch -r afile bfile
+    touch -r <a> <b>
 
 # Run-level a.k.a. boot manager
 
