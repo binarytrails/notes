@@ -1,6 +1,4 @@
-
 [All build information](http://dl.ring.cx/docs/compiling_and_installing/index.html)
-
 
 # Daemon
 
@@ -41,24 +39,25 @@
 [How to build](https://tuleap.ring.cx/wiki/index.php?pagename=Build%20LibRingClient%20%28LRC%29&group_id=101),
 [where to get](https://gerrit-ring.savoirfairelinux.com/#/admin/projects/ring-lrc)
 
-Build with activ debug.
+Build in debug mode:
 
     cd $LIBRINGLIENT
     mkdir build
     cd build
     cmake .. -DRING_BUILD_DIR=$RING/src -DCMAKE_INSTALL_PREFIX=/usr -DCMAKE_BUILD_TYPE=Debug
     make
-    sudo make install  
+    sudo make install
 
 # Gnome client
 
 [How to build](https://tuleap.ring.cx/wiki/index.php?group_id=101&pagename=Build+Gnome+Client+for+Ring),
 [where to get](https://gerrit-ring.savoirfairelinux.com/#/admin/projects/ring-client-gnome)
 
-Build with the build process link to LRC
+Build with linking to your LRC (to be able to debug it):
 
     mkdir build
     cd build
     cmake -DLibRingClient_PROJECT_DIR= [add_your_LRC_path_project_folder] ..
     make
     sudo make install
+
