@@ -7,4 +7,8 @@ Follow the builds commands (/ring/builds.md) then:
 # Gnome client + LRC
 
     gdb --args ./gnome-ring
-    
+
+# Android client
+
+    adb logcat *:D | grep `adb shell ps | egrep 'cx.ring' | cut -c10-15` > logring.txt
+
