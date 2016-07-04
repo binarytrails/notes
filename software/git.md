@@ -18,6 +18,24 @@ and then do:
 
     git push --force
 
+# Merge & squash
+
+    git pull git://github.com/<user>/repo.git master
+    git checkout master
+    git merge --no-ff <user>-master
+
+    git rebase -i HEAD~3        # 3 commits back from this one
+
+    # write 'pick' for one and 'squash' for all others, then edit the message
+
+    # Tag the pull request of GitHub by adding this line to the commit message:
+    # 'Merge pull request #<nb> from <user>/master'
+
+    git log                     # verify
+    git commit --amend          # edit commit message if needed
+
+    git push origin master
+
 # Commit messages
 
 See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
