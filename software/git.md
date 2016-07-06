@@ -7,34 +7,44 @@
     git checkout -- path/to/file
 
 # Remove commit's from Github
-    
+
     git reset --soft hash-id
 
 or (where 1 is the number of commits to rollback)
 
     git reset --soft HEAD~1
-    
+
 and then do:
 
     git push --force
 
 # Merge & squash
 
-    git pull git://github.com/<user>/repo.git master
+    # To ensure safety go to temporary folder and clone your current master
+    git clone git://github.com/<user>/<repo>.git master
+
+    # Create branch for merging and get its code there
+    git checkout -b <user>-master master
+    git pull git://github.com/<user>/<repo>.git master
+
+    # Go back to master and merge
     git checkout master
     git merge --no-ff <user>-master
 
-    git rebase -i HEAD~3        # 3 commits back from this one
+    # Squash if needed into one commit (pick for one, squash for others)
+    git rebase -i
 
-    # write 'pick' for one and 'squash' for all others, then edit the message
+    # Solve conflicts
+    git mergetool --tool vimdiff
+    git mergetool --tool meld       # or use something with UI
 
     # Tag the pull request of GitHub by adding this line to the commit message:
-    # 'Merge pull request #<nb> from <user>/master'
+    # 'Merge pull request #<id> from <user>/master'
 
-    git log                     # verify
-    git commit --amend          # edit commit message if needed
+    git commit --amend              # edit the commit message if needed
 
-    git push origin master
+    git log                         # verify
+    git push origin master          # publish
 
 # Commit messages
 
