@@ -1,0 +1,99 @@
+Astuces de développement sur Ring
+
+GDB
+
+lancer le programe: r
+backtrace: bt
+s'arreter (ne stop pas le programe, mais permet de reprendre la main dans gdb) : CTRL-C
+tous les thread: thread find .
+bt sur tous les thread: thread apply all bt
+(le main thread a l'id 1)
+afficher l'adresse du dernier segfault:
+    print $_siginfo._sifields._sigfault.si_addr
+    ptype $_siginfo permet de voir ce qui est dans le struct
+
+l : afficher le code autour de l'erreur, le refaire avance dans le code (l - pour un retour en arrière)
+f #: aller au frame qui a ce numéro (f 0 -> frame du crash/bp)
+
+breakpoints:
+    b file.cpp:line -> mettre un bp à la ligne spécifiée
+    b namespace::class::function -> mettre un bp au début de la fonction spécifiée
+    d pour supprimer des bp (d seul les supprime tous)
+    info breakpoints: affiche les breakpoints actifs
+
+print (p) permet d'exécuter du code en temps réel (plus calculatrice intégrée)
+
+lorsque un breakpoint est declenche (hit Breakpoint). On peut l'analyser avec la commande `bt`. On obtient une liste
+numerotee (#0 ... #n) ou n represente l'element qui a declenche la cascade.
+
+next ou n # : execute la ligne en cours, avec # (nombre entier) execute # lignes.
+
+step ou s # : permet d'entrer dans la fonction.
+
+continue ou c : reprend l'execution jusqu'au prochain breakpoint ou tout autre evenement qui stop le programe.
+
+debogage de GTK :  G_DEBUG=fatal_warnings gdb --args gnome-ring
+
+Lancement du daemon "à la main"
+
+SIPLOGLEVEL=0 AVLOGLEVEL=0 RING_TLS_LOGLEVEL=0 gdb --args ./bin/dring -c -d -p
+
+    SIPLOGLEVEL de 0 à 5 (4 pour afficher l'ICE)
+
+    AVLOGLEVEL de 0 à 9
+
+
+Outils pour étudier le daemon
+
+    -d-feet: envoi des commandes String
+
+    -bustle
+
+    -dringctrl: programme en python disponible dans tools
+
+
+Wireshark:
+
+    -protocole STUN
+
+    -DHT, non visible directement. Il faut trier par paquet UDP et prendre ceux dont la description se termine par V.RNG1
+
+
+Procédure pour pousser un patch vers Gerrit
+
+* pousser en drafts (visible sur invitation, effacable):
+
+Tapez sous votre dépôt GIT:
+    git push origin HEAD:refs/drafts/master
+
+On peut faire un alias de "origin HEAD:refs/drafts/master" en ajoutant ceci dans votre .git/config
+
+
+[remote "for-drafts"] 
+
+    url = ssh://username@gerrit-ring.savoirfairelinux.com:29420/ring-daemon    
+
+    push = HEAD:refs/drafts/master
+
+
+=> remplacer "username" par votre username gerrit (voir vos préférence gerrit
+=> ici l'alias s'appel for-drafts, vous taperez donc la commande:
+    git push for-drafts
+
+
+* pousser en revue (visible de tous, non effacable):
+
+Tapez sous votre dépôt GIT:
+    git push origin HEAD:refs/for/master
+
+De même un alias peut-être fait avec un remote dans .git/config
+
+* pousser sur le même sujet gerrit
+                        
+git commit --amend
+
+Outil pour etudier le client Gnome (Gtk) :
+- GtkInspector (https://wiki.gnome.org/Projects/GTK%2B/Inspector)
+
+----------------------------
+Written by the Ring-dev team
