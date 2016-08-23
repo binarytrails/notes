@@ -1,4 +1,5 @@
 # Touchpad tap
+
 To see what is set:
 
     synclient
@@ -11,6 +12,7 @@ Inverse actions done with two to three fingers:
     synclient TapButton3=2
 
 # Gnome gdm login background
+
 The only one that worked for me on Arch Linux:
 
     sudo -u gdm dbus-launch gsettings set org.gnome.desktop.screensaver picture-uri 'file:///usr/share/backgrounds/gnome/picture.jpg'
@@ -21,4 +23,18 @@ Then, you can verify it worked:
 Or verify using dconf:
 
     sudo -u gdm dconf read /org/gnome/desktop/screensaver/picture-uri
+
+# Gnome-terminal profiles
+
+* Backup current
+
+    dconf dump /org/gnome/terminal/ > org.gnome.terminal
+
+* Nuke current
+
+    dconf reset -f /org/gnome/terminal/
+
+* Load yours
+
+    dconf load /org/gnome/terminal/ < org.gnome.terminal
 
