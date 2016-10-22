@@ -1,0 +1,13 @@
+#
+# /etc/hosts: static lookup table for host names
+#
+
+#<ip-address>       <hostname.domain.org>        <hostname>
+127.0.0.1           localhost.localdomain        localhost
+::1                 localhost.localdomain        localhost
+
+151.101.32.133      raw.githubusercontent.com
+192.30.253.112      github.com
+192.30.253.112      www.github.com
+
+# End of file

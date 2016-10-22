@@ -1,0 +1,18 @@
+rfkill                          # network control
+arch-wiki-docs
+arch-wiki-lite
+network-manager-applet
+android-tools
+flashplugin
+icedteaweb
+gedit
+mocp
+zip
+file-roller
+rsync
+gst-libav                       # mp4 +
+mat
+perl-image-exiftool             # mat images support
+vokoscreen                      # screen capture
+traceroute
+aircrack-ng
