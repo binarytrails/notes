@@ -16,3 +16,4 @@ perl-image-exiftool             # mat images support
 vokoscreen                      # screen capture
 traceroute
 aircrack-ng
+dosfstools
