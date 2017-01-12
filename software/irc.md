@@ -18,4 +18,7 @@
     alt + arrows
     ctrl + N, ctrl + P
     /<windows number>
- 
+
+# Change theme
+
+    /SET theme name
