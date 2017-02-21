@@ -14,3 +14,8 @@ A method resides in a class, a function does not. For example, in C there are fu
         std::bind(&Class:method, class, _1);
     }
 
+# Virtual vs. Pure Virtual
+
+> A virtual function or virtual method is a function or method whose behavior can be overridden within an inheriting class by a function with the same signature.
+
+> A pure virtual function or pure virtual method is a virtual function that is required to be implemented by a derived class that is not abstract.
