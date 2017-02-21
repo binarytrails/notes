@@ -17,3 +17,5 @@ vokoscreen                      # screen capture
 traceroute
 aircrack-ng
 dosfstools
+gdb
+gutenprint    # major printer drivers - cups pkgs as deps
