@@ -61,3 +61,6 @@ See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/
 
 Imo, 7 is optional depending on the commit size / complexity and project stage.
 
+# Rename submodule
+
+```git mv a b``` - relocate its working tree and adjust the paths in the .gitmodules file
