@@ -64,3 +64,22 @@ Imo, 7 is optional depending on the commit size / complexity and project stage.
 # Rename submodule
 
 ```git mv a b``` - relocate its working tree and adjust the paths in the .gitmodules file
+
+# Different ssh keys for GitHub users
+
+    $ cat ~/.ssh/config
+
+    Host github.com-username
+        User git
+        IdentityFile /home/user/.ssh/id_rsa
+        IdentitiesOnly yes
+        Hostname ssh.github.com
+        Port 443
+
+    $ cd repository; cat .git/config
+    
+    ...
+    [remote "origin"]
+        url = git@github.com-username:username/repository.git
+    ...
+
