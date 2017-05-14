@@ -1,4 +1,4 @@
-# Unknown trust error
+# Reset trust
 
     rm -R /etc/pacman.d/gnupg
     pacman-key --init
