@@ -1,4 +1,4 @@
-# Normal flow
+# Install
 
 1. Enable USB debugging
 
@@ -44,6 +44,10 @@
     Install by selecting all zips and hitting install.
 
     Reboot & pray.
+
+# Update
+
+Rebooted into TWRP: manually install: ```/data/data/org.lineageos.updater/app_updates/lineage-*.zip```
 
 # Anomalies
 
