@@ -18,14 +18,8 @@
     include("SuperDirt")        # install it
     ctrl-D                      # exit
 
-    # point from extensions to installed ones
-    cd /root/.local/share/SuperCollider/downloaded-quarks/
-    ln -s /root/.local/share/SuperCollider/downloaded-quarks/Vowel/
-    ln -s /root/.local/share/SuperCollider/downloaded-quarks/Dirt-Samples/
-    ln -s /root/.local/share/SuperCollider/downloaded-quarks/quarks/
-
     # tidal with vim
-    vim ~/.vimrc                # Plug 'munshkr/vim-tidal'
+    vim ~/.vimrc                # add line: Plug 'munshkr/vim-tidal'
     :PlugInstall
     :q
 
@@ -34,24 +28,38 @@
 # Run
 
     # ==> terminal 1 (sound server)
-
     su
+
+    # generate DBUS_SESSION_BUS_ADDRESS and DBUS_SESSION_BUS_PID env variables
+    # for jackd & sclang (supercollider) and apply (paste) them in bash
     dbus-launch --auto-syntax
+
+    # needs sudo for real-time scheduling
     jackd -u -t 500 -d alsa -d hw:0 -r 44100 -p 1024
 
     # ==> terminal 2 (supercollider)
 
-    slang
+    # needs sudo to use same env variables as jackd
+    sudo slang
     SuperDirt.start
 
-    # ==> terminal 3 (vim as tidal-cycles editor)
+# Interface
 
-    tidalvim                    # start
+## tidalvim
 
-# Destroy
+    tidalvim
 
-## tidalvim: persisting session
+It will start a ```tmux``` session in which you have ```ctrl-b``` as CMD key.
 
-To be re-encountered for clean solution:
-https://github.com/munshkr/vim-tidal/issues/22
+    CMD-<arrow>         # switch between panels
+    CMD-ctrl-<arrow>    # resize current pannel
+    CMD :detach         # gtfo
+
+### persisting session
+
+Reported: https://github.com/munshkr/vim-tidal/issues/22
+
+Solution:
+
+    tmux kill-session -t tidal
 
