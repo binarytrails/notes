@@ -11,11 +11,10 @@ zip
 file-roller
 rsync
 gst-libav                       # mp4 +
-mat
-perl-image-exiftool             # mat images support
 vokoscreen                      # screen capture
 traceroute
 aircrack-ng
 dosfstools
 gdb
-gutenprint    # major printer drivers - cups pkgs as deps
+gutenprint                      # major printer drivers - cups pkgs as deps
+perl-image-exiftool             # remove metadata : exiv2 rm file.jpg
