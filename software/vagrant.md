@@ -6,7 +6,8 @@
     + mkdir /vagrant
        chmod 775 /vagrant
        chown vagrant:vagrant /vagrant
-    + vagrant ALL=(ALL) NOPASSWD: ALL
+    + visudo: vagrant ALL=(ALL) NOPASSWD: ALL
+    - visudo: #Defaults requiretty
     + /etc/ssh/sshd_config:109:UseDNS no
     + vagrant ssh configuration:
        mkdir /home/vagrant/.ssh
