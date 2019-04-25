@@ -1,3 +1,12 @@
+# Wireshark
+
+Capture as non-root:
+
+    sudo usermod -a -G wireshark <username>
+    sudo chmod 750 /usr/bin/dumpcap
+    sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
+    # logout
+
 # File Descriptors
 
 Pointers to the sources of data that the programs are using.
