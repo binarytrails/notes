@@ -19,3 +19,13 @@ A method resides in a class, a function does not. For example, in C there are fu
 > A virtual function or virtual method is a function or method whose behavior can be overridden within an inheriting class by a function with the same signature.
 
 > A pure virtual function or pure virtual method is a virtual function that is required to be implemented by a derived class that is not abstract.
+
+# Shared Pointers
+
+## const
+
+    shared_ptr<T> p;             ---> T * p;                                    : nothing is const
+    const shared_ptr<T> p;       ---> T * const p;                              : p is const
+    shared_ptr<const T> p;       ---> const T * p;       <=> T const * p;       : *p is const
+    const shared_ptr<const T> p; ---> const T * const p; <=> T const * const p; : p and *p are const.
+
