@@ -1,8 +1,15 @@
-# Debug
+# Run
 
     gdb --args binary --arg1 --arg2
 
-# TUI
+# Threads
+
+print all threads backtrace:
+
+    thread apply all bt
+    t a a b
+
+# TUI Terminal UI
 
 You can see the assembly as well as the iteractive backtrace after a ```bt```.
 
