@@ -34,6 +34,27 @@
     # Install
     sudo make install
 
+## Building Ring with ASan
+
+Building with ASan is easy and allows you to catch some interesting issues from time to time
+
+More fsanitize options: https://gcc.gnu.org/onlinedocs/gcc/Instrumentation-Options.html
+
+    export CFLAGS="-O0 -g -fsanitize=address"
+    export LDFLAGS="-fsanitize=address"
+    export CXXFLAGS="$CFLAGS"
+    ./configure
+
+Then, build as usual.
+
+Running autogen.sh should not be necessary.
+
+In order to build with ASan, you will need GCC >= 4.8, but, anyways, not sure you can build Ring with GCC 4.7 :)
+
+    CXXFLAGS="-fsanitize=address" ./configure --enable-debug
+
+This is enough to build the daemon with ASan (but not to build the contribs with ASan, which is useful to debug PJSIP stuff)
+
 # LRC
 
 [How to build](https://tuleap.ring.cx/wiki/index.php?pagename=Build%20LibRingClient%20%28LRC%29&group_id=101),
