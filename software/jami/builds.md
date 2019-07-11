@@ -82,3 +82,14 @@ Build with linking to your LRC (to be able to debug it):
     make
     sudo make install
 
+# Jami-Project
+
+Checkout your gerrit patch set within a submodule of a higher entity:
+
+    cd .git/modules/daemon/
+    curl -Lo /home/n0t/jami/ring-project/.git/modules/daemon/hooks/commit-msg \
+        https://review.jami.net/tools/hooks/commit-msg; \
+        chmod +x /home/n0t/jami/ring-project/.git/modules/daemon/hooks/commit-msg
+    git fetch https://review.jami.net/ring-daemon refs/changes/59/11959/16 && git checkout FETCH_HEAD
+    git pull origin refs/changes/59/11959/16
+
