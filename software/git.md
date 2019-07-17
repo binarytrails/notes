@@ -1,3 +1,7 @@
+# Add modified and deleted to staging
+
+    git add -u
+
 # Revert file to a past version
 
     git checkout hash-id path-to-file
