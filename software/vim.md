@@ -35,3 +35,14 @@
 
 > You do need to install the gvim package to get a Vim linked to libX11; but you don't need to use gvim. --Carpetsmoker
 
+Copy paths to clipboard
+
+    " relative path
+    :let @+ = expand("%")
+
+    " full path
+    :let @+ = expand("%:p")
+
+    " just filename
+    :let @+ = expand("%:t")
+
