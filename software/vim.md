@@ -1,6 +1,7 @@
 # Colon commands
 
     :Ex                 Browse file directory & show what you edited but didn't save
+    :cq                 Quit with an error code (abort git commit --amend)
     :'[id]              Jump among recently edited files located in ~/.viminfo
     :browse old         Get a menu with the Recently edited files numbers
     :retab              Replace tabs according to your settings
