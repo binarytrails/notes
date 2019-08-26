@@ -1,3 +1,9 @@
+# Update to upstream (across repositories)
+
+    git remove add upstream <git repo url>
+    git fetch upstream
+    git pull upstream master
+
 # Add modified and deleted to staging
 
     git add -u
