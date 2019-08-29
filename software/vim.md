@@ -7,6 +7,7 @@
     :retab              Replace tabs according to your settings
     :e ++ff=unix        Display CRLF as ^M
     :%s/\r//g           Remove ^M
+    :w !sudo tee %      Save as sudo
 
     :set background=light
     :python import sys; print(sys.version)      Get the compiled python version
