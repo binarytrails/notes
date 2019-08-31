@@ -81,3 +81,14 @@ Checkout your gerrit patch set within a submodule of a higher entity:
     git fetch https://review.jami.net/ring-daemon refs/changes/59/11959/16 && git checkout FETCH_HEAD
     git pull origin refs/changes/59/11959/16
 
+## Build Android on Arch Linux
+
+    export JAVA_HOME=/usr/lib/jvm/default/jre
+    export ANDROID_HOME=/opt/android-sdk
+    export ANDROID_SDK=/opt/android-sdk
+    export ANDROID_NDK_ROOT=/opt/android-ndk
+    export ANDROID_NDK=/opt/android-ndk
+    export PATH=$PATH:$PATH:$ANDROID_HOME/tools:$ANDROID_NDK:$ANDROID_NDK:$JAVA_HOME/bin
+
+    ./make-ring.py --install --distribution=Android
+    ANDROID_ABI=armeabi-v7a arm64-v8a ./make-ring.py --install --distribution=Android
