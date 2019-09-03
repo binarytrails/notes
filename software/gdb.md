@@ -2,6 +2,41 @@
 
     gdb --args binary --arg1 --arg2
 
+# Breakpoints
+
+start from second breakpoint
+
+scenario:
+
+    void bp2() { };
+    void bp1() { bp2(); }
+
+    int main()
+    {
+      bp2();
+      bp1();
+      return 0;
+    }
+
+gdb, trigger when bp1->bp2:
+
+    b bp1
+    b bp2
+
+    # set commands to be executed when the given breakpoints are hit.
+    # give a space-separated breakpoint list as argument after "commands".
+    commands 1
+    silent
+    enable 2
+    c
+    end
+
+    commands 2
+    disable 2
+    end
+
+    disable 2
+
 # Threads
 
 print all threads backtrace:
