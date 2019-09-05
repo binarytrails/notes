@@ -14,3 +14,9 @@
 
     # make a http request with the certificate
     curl -v https://127.0.0.1:8080 --cacert cert.pem
+
+    # inspect certificate
+    openssl x509 -in ca.pem -text -noout
+
+    # extract certificate from server
+    openssl s_client -showcerts -connect <ip:port>
