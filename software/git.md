@@ -56,6 +56,13 @@ and then do:
     git log                         # verify
     git push origin master          # publish
 
+# Delete
+
+    # local
+    git branch -D <name>
+    # remote
+    git push --delete origin <name>
+
 # Commit messages
 
 See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
