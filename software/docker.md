@@ -11,3 +11,6 @@
 
     # snapshot an active container
     docker commit <container id> <name>
+
+    # cleanup everything
+    docker rm $(docker ps -a -q) && docker rmi $(docker images -q)
