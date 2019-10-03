@@ -12,6 +12,10 @@
 
     git checkout hash-id path-to-file
 
+# Checkout a pull-request
+
+    git fetch origin pull/ID/head:BRANCHNAME
+
 # Undo changes on one file
 
     git checkout -- path/to/file
