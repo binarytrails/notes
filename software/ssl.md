@@ -24,5 +24,16 @@
     # inspect certificate revocation list
     openssl crl --noout -text -in crl.crl
 
-    # extract certificate from server
-    openssl s_client -showcerts -connect <ip:port>
+    # get certificate chain from server
+    openssl s_client -connect google.com:443 -showcerts 2>&1 < /dev/null
+
+    # ocsp (online certificate status protocol)
+    -------------------------------------------
+    # get oscp response if any
+    openssl s_client -host wikipedia.com -port 443 -status < /dev/null
+    # get server certificate
+    openssl s_client -connect google.com:443 2>&1 < /dev/null | sed -n '/-----BEGIN/,/-----END/p' > google.pem
+    # extract oscp url
+    openssl x509 -noout -ocsp_uri -in google.pem
+    # validate certificate with chain through ocsp url
+    openssl ocsp -issuer google-chain.pem -cert google.pem -text -url <oscp-url>
