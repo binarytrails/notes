@@ -17,8 +17,8 @@
     make .pjproject
 
     cd ring-daemon && mkdir build
-    cd build && ./autogen.sh        # now generate autotools configuration files
-    ./configure --prefix=/usr       # create makefiles etc
+    cd build && .././autogen.sh                 # now generate autotools configuration files
+    ./configure --prefix=/usr --disable-shared  # to be able to load in gdb: --disable-shared
     make
     sudo make install
 
