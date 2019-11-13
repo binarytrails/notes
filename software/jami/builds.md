@@ -18,7 +18,10 @@
 
     cd ring-daemon && mkdir build
     cd build && .././autogen.sh                 # now generate autotools configuration files
-    ./configure --prefix=/usr --disable-shared  # to be able to load in gdb: --disable-shared
+
+    # to avoid strange errors and be able to load in gdb: --disable-shared
+    ./configure --prefix=/usr --disable-shared --enable-debug
+
     make
     sudo make install
 
