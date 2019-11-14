@@ -29,3 +29,8 @@ A method resides in a class, a function does not. For example, in C there are fu
     shared_ptr<const T> p;       ---> const T * p;       <=> T const * p;       : *p is const
     const shared_ptr<const T> p; ---> const T * const p; <=> T const * const p; : p and *p are const.
 
+# Conversions
+
+    # string to vec
+    std::string str;
+    std::vector<uint8_t> vec(str.begin(), str.end());
