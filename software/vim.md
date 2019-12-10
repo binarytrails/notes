@@ -11,6 +11,7 @@
 
     :set background=light
     :python import sys; print(sys.version)      Get the compiled python version
+    :au BufWritePost * make                     Build with make when saving a file :w
 
 # Keyboard shortcuts
 
