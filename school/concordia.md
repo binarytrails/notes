@@ -13,4 +13,13 @@
 * COMP 233 : Probability & Statistics
 
     [Permutations vs Combinations](https://youtu.be/iKy-d5_erhI)
-    
+
+* COMP 335 : Introduction to Theorical Computer Science
+
+    [Raphi the life savior](https://raphiinconcordia.wordpress.com/comp-335/)
+
+    [NFA to DFA using Subset construction](https://www.youtube.com/watch?v=fiT1nYM1j0Q)
+
+    [DFA Minimization using TF algo](https://www.youtube.com/watch?v=o34C4l5OhN4)
+
+    [Homomorphism](https://www.youtube.com/watch?v=cYzp5IWqCsg)
