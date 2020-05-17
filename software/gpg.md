@@ -8,11 +8,11 @@
 
 The fastest way is to use echo directly.
 
-        echo "dear deer" | gpg --encrypt --armor --recipient "Roger"
+    echo "dear deer" | gpg --encrypt --armor --recipient "Roger"
 
 Another way is to use [more] to pass the file content to [gpg].
 
-        more message | gpg -e -a -r "Roger"
+    more message | gpg -e -a -r "Roger"
 
 ## Decrypting
 
@@ -30,7 +30,7 @@ Another way is to use [more] to pass the file content to [gpg].
 
 You can always export it to file by adding [> output]
 
-        echo "encrypted message" | gpg -d > output
+    echo "encrypted message" | gpg -d > output
 
 ## Exporting
 
