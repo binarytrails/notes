@@ -2,7 +2,9 @@
 
 ## Generating your key
 
-    gpg --gen-key
+Chose RSA and RSA, 4096 and 1y expire (at most).
+
+    gpg --full-generate-key
 
 ## Encrypting
 
@@ -55,3 +57,10 @@ You can always export it to file by adding [> output]
 
     gpg -d backup.tar.gz.gpg | tar xzvf -
 
+## Searching keys
+
+    gpg --keyserver hkp://keys.openpgp.org/ --search-keys tasty@waffles.now
+
+## Receiving keys
+
+    gpg --keyserver hkp://keys.openpgp.org --recv-keys <hash>
