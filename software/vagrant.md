@@ -1,4 +1,12 @@
-# essentials
+# vbox
+
+    vagrant plugin install vagrant-vbguest
+    vagrant vbguest
+
+    # centos 8
+    https://github.com/dotless-de/vagrant-vbguest/issues/367
+
+# manual essentials
 
     + set root passwd to vagrant
     + useradd -m vagrant
