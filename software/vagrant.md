@@ -6,7 +6,15 @@
     # centos 8
     https://github.com/dotless-de/vagrant-vbguest/issues/367
 
-# manual essentials
+# load env vars
+
+they are loaded from ```/etc/profile.d/``` each time
+
+    config.vm.provision "shell", inline: <<-SHELL
+      echo "export MYVAR='my_value'" >> /etc/profile.d/myvar.sh
+    SHELL
+
+# manual config
 
     + set root passwd to vagrant
     + useradd -m vagrant
@@ -25,4 +33,3 @@
        chmod 644 authorized_keys
        wget https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub --no-check-certificate
        cat vagrant.pub > authorized_keys
-
