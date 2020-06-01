@@ -16,7 +16,13 @@ Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR 
 
 # Find and Replace
 
+## strings
+
     grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
+
+## filenames
+
+    find . -name *_test.rb | sed -e "p;s/test/spec/" | xargs -n2 mv
 
 # Command output as file
 http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
