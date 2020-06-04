@@ -1,5 +1,13 @@
 # docker
 
+## when to avoid
+
+- X is involved
+- sysctl reload (read only filesystem)
+- systemd (required to connect host systemd to docker one)
+
+Vagrant would be more suited and entirely embedded (headless VM)
+
 ## command line
 
     # build docker image
