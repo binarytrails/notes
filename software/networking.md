@@ -1,3 +1,14 @@
+# Find places
+
+destination directly
+
+    dig +short <domain name>
+    nslookup <domain name>
+
+the routes taken
+
+    tracepath <desitination>
+
 # Wireshark
 
 Capture as non-root:
