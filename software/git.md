@@ -8,6 +8,10 @@
 
     git add -u
 
+# Forget the staged files
+
+    git restore --staged
+
 # Revert file to a past version
 
     git checkout hash-id path-to-file
