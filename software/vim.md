@@ -19,6 +19,8 @@
     A   go to the end of the line and switch to editing mode
     0   go to the beginning of the line incl. whitespace
     ^   go to the first non-whitespace character in the line
+    U   make uppercase
+    u   make lowercase
 
     q:  list commands history
     q/  list searches history
