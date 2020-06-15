@@ -14,6 +14,11 @@ they are loaded from ```/etc/profile.d/``` each time
       echo "export MYVAR='my_value'" >> /etc/profile.d/myvar.sh
     SHELL
 
+# copy back and forth
+
+    vagrant plugin install vagrant-scp
+    vagrant scp vmname:/vagrant/file ./file
+
 # manual config
 
     + set root passwd to vagrant
