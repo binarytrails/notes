@@ -53,7 +53,8 @@ Partition: GPT
 
 Filesystem Type: FAT
 
-    dd bs=4m if=arch.iso of=/dev/sdx
+    dd bs=4M if=arch.iso of=/dev/sdx
+    sync # let it finish
 
 ## Partitionning
 
