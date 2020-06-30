@@ -1,3 +1,18 @@
+# Pipping
+
+## File Descriptors
+
+Pointers to the sources of data that the programs are using.
+
+    0   stdin   Standard Input
+    1   stdout  Standard Output
+    2   stderr  Standard Error
+
+### Send stderr to stdout
+
+    cmd 2>&1 | cat
+    cmd >>file.txt 2>&1
+
 # Finding
 
 ## something inside all directory files
