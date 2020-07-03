@@ -23,3 +23,7 @@
 
     # synchronization with remote NTP server
     timedatectl set-ntp true
+
+**date**
+
+    date +%Y-%m-%d
