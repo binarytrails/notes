@@ -6,6 +6,10 @@ Chose RSA and RSA, 4096 and 1y expire (at most).
 
     gpg --full-generate-key
 
+## Verify password
+
+    gpg --export-secret-keys -a <id> > /dev/null && echo OK
+
 ## Encrypting
 
 The fastest way is to use echo directly.
