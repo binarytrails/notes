@@ -14,6 +14,14 @@
     -t <tag>
     --skip-tags <tag> <playbook>
 
+    - name: loop over all the hosts in the current play and track index
+      run_once: True
+      debug:
+        msg: "{{ item }} {{ index }}"
+      loop: "{{ ansible_play_batch }}"
+      loop_control:
+        index_var: index
+
 ## tasks
 
     # register fail
@@ -78,4 +86,3 @@ https://serverfault.com/questions/835901/ansible-json-output
         v2_runner_on_failed = dump_result
 
     $ ANSIBLE_STDOUT_CALLBACK=json_cb ansible-playbook myplaybook.yml
-
