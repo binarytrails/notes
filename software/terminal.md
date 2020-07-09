@@ -29,17 +29,22 @@ Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR 
 
     find / \( -path /sys -o -path /var \) -prune -o -type d -name site-packages
 
-# Find and Replace
+# Find
 
-## strings
+## get nth line in file
+
+    awk -v n=$MY_VAR 'NR == n' /tmp/file
+
+## replace strings
 
     grep -rl matchstring somedir/ | xargs sed -i 's/string1/string2/g'
 
-## filenames
+## replace filenames
 
     find . -name *_test.rb | sed -e "p;s/test/spec/" | xargs -n2 mv
 
 # Command output as file
+
 http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
 
     diff <(echo "abc") <(echo "abd") 
@@ -47,7 +52,14 @@ http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
 # Sha1sum check
 
     echo <hash> <file> | sha1sum -c
-    
+
+# Counter
+
+    echo 0 > /tmp/c; cat /tmp/c
+    for i in seq 3 ; do
+        i=$(cat /tmp/c) && echo $((i+1)) > /tmp/c && echo $(cat /tmp/c);
+    done;
+
 # Converting with ffmpeg & avconv
     
     ffmpeg -fflags +genpts -i input.avi -map_metadata 0:s:0 -codec copy -f mp4 output.mp4   # removes metadata
@@ -151,4 +163,3 @@ Here are some commands to help you start up
     Mod-q       Quit dvtm.
 
 (More commands)[http://www.brain-dump.org/projects/dvtm/]
-
