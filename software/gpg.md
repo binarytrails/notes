@@ -10,6 +10,12 @@ Chose RSA and RSA, 4096 and 1y expire (at most).
 
     gpg --export-secret-keys -a <id> > /dev/null && echo OK
 
+## Change password
+
+    gpg --edit-key <id>
+    > passwd
+    > save
+
 ## Encrypting
 
 The fastest way is to use echo directly.
