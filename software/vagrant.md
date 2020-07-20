@@ -1,12 +1,24 @@
-# vbox
+# Vagrant
+
+## specify vagrantfile
+
+    VAGRANT_VAGRANTFILE=Vagrant-2 vagrant up
+
+## vbox
 
     vagrant plugin install vagrant-vbguest
     vagrant vbguest
 
-    # centos 8
-    https://github.com/dotless-de/vagrant-vbguest/issues/367
+centos 8: https://github.com/dotless-de/vagrant-vbguest/issues/367
 
-# load env vars
+## snapshot
+
+    vagrant snapshot save [vm-name] NAME
+    vagrant snapshot restore [vm-name] NAME
+    vagrant snapshot list
+    vagrant snapshot delete [vm-name] NAME
+
+## load env vars
 
 they are loaded from ```/etc/profile.d/``` each time
 
@@ -14,12 +26,12 @@ they are loaded from ```/etc/profile.d/``` each time
       echo "export MYVAR='my_value'" >> /etc/profile.d/myvar.sh
     SHELL
 
-# copy back and forth
+## copy back and forth
 
     vagrant plugin install vagrant-scp
     vagrant scp vmname:/vagrant/file ./file
 
-# manual config
+## manual config
 
     + set root passwd to vagrant
     + useradd -m vagrant
