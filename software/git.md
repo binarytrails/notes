@@ -4,6 +4,11 @@
     git fetch upstream
     git pull upstream master
 
+# Overwrite by remote
+
+    git fetch --all
+    git reset --hard origin/master
+
 # Add modified and deleted to staging
 
     git add -u
