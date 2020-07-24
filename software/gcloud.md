@@ -16,6 +16,26 @@
 
     gcloud compute ssh <vm> --tunnel-through-iap
 
+## format
+
+    --format=json
+    --format=csv\('KEY'\)
+    --format=get\('KEY'\)
+    --format=value\('KEY'\)
+
+## secrets
+
+*The difference with kms is that it abstracts the encryption keys for you.*
+
+    gcloud secrets
+    gcloud secrets versions list mysecret
+    gcloud secrets versions access 1 --secret mysecret
+
+    gcloud secrets versions add mysecret --data-file=-
+    tutu
+    ^D
+    Created version [1] of the secret [mysecret].
+
 ## login methods
 
 * by default, add manually the ssh key that will be pushed into authorized-key
