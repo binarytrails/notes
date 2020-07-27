@@ -36,6 +36,13 @@
     ^D
     Created version [1] of the secret [mysecret].
 
+## logging
+
+Find accessed secrets
+
+    gcloud logging read "resource.type="audited_resource" AND
+    protoPayload.methodName="google.cloud.secretmanager.v1.SecretManagerService.AccessSecretVersion"" --json
+
 ## login methods
 
 * by default, add manually the ssh key that will be pushed into authorized-key
