@@ -28,13 +28,24 @@
 *The difference with kms is that it abstracts the encryption keys for you.*
 
     gcloud secrets
-    gcloud secrets versions list mysecret
-    gcloud secrets versions access 1 --secret mysecret
 
-    gcloud secrets versions add mysecret --data-file=-
+    $ echo -n "tata" | gcloud secrets create topsecret --data-file=- --replication-policy automatic
+    Created version [1] of the secret [pubsub-secret].
+
+    gcloud secrets versions list topsecret
+    gcloud secrets versions access 1 --secret topmysecret
+
+    $ gcloud secrets versions add topsecret --data-file=-
     tutu
     ^D
-    Created version [1] of the secret [mysecret].
+    Created version [2] of the secret [topsecret].
+
+## functions
+
+### deploy
+
+    gcloud functions deploy NAME \
+      --source https://source.developers.google.com/projects/PROJECT_ID/repos/REPOSITORY_ID/moveable-aliases/master/paths/SOURCE
 
 ## logging
 
