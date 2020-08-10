@@ -47,7 +47,17 @@
     gcloud functions deploy NAME \
       --source https://source.developers.google.com/projects/PROJECT_ID/repos/REPOSITORY_ID/moveable-aliases/master/paths/SOURCE
 
+## send data
+
+> To directly invoke the function, you need to send a PubsubMessage, which expects base64-encoded data, as the event data
+
+    DATA=$(printf 'Kaboumin'|base64) && gcloud functions call NAME --data '{"data":"'$DATA'"}'
+
 ## logging
+
+Read last logs
+
+    gcloud functions logs read NAME
 
 Find accessed secrets
 
