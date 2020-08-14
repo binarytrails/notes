@@ -3,7 +3,7 @@
 ## init account
 
     gcloud auth login
-    
+
 ## set project
 
     gcloud config set project <project>
@@ -39,6 +39,21 @@
     tutu
     ^D
     Created version [2] of the secret [topsecret].
+
+### generate json credentials
+
+    gcloud iam service-accounts keys create creds.json --iam-account [NAME]@[PROJECT_ID].iam.gserviceaccount.com
+
+then, reuse them in a Python session:
+
+    import os
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="creds.json"
+
+    from google.cloud import secretmanager
+
+    client = secretmanager.SecretManagerServiceClient()
+
+import issue: https://stackoverflow.com/a/60821519
 
 ## functions
 
