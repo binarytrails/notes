@@ -113,3 +113,11 @@ Imo, 7 is optional depending on the commit size / complexity and project stage.
         url = git@github.com-username:username/repository.git
     ...
 
+
+# Removing sensitive data from commits
+
+        git filter-branch --force --index-filter \
+          "git rm --cached --ignore-unmatch PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA" \
+          --prune-empty --tag-name-filter cat -- --all
+
+    https://help.github.com/en/github/authenticating-to-github/removing-sensitive-data-from-a-repository
