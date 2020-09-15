@@ -11,6 +11,11 @@
 
 centos 8: https://github.com/dotless-de/vagrant-vbguest/issues/367
 
+## sync
+
+    # disable default sync folder
+    config.vm.synced_folder '.', '/vagrant', disabled: true
+
 ## snapshot
 
     vagrant snapshot save [vm-name] NAME
