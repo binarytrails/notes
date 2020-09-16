@@ -31,6 +31,24 @@ they are loaded from ```/etc/profile.d/``` each time
       echo "export MYVAR='my_value'" >> /etc/profile.d/myvar.sh
     SHELL
 
+## ansible
+
+### roles path
+
+    Vagrant.configure('2') do |config|
+      # manual way
+      #vagrant_root = File.dirname(__FILE__)
+      #ENV['ANSIBLE_ROLES_PATH'] = "#{vagrant_root}/ansible/roles:#{vagrant_root}/ansible/galaxy-roles"
+
+      # prefered way, place custom roles in the same place (generate with ansible-galaxy init myrole --offline)
+      config.vm.provision :ansible do |ansible|
+        ansible.provisioning_path = '/vagrant/ansible/'
+        ansible.playbook = './playbooks/play.yml'
+        ansible.galaxy_role_file = 'dependencies.yml'
+        ansible.galaxy_roles_path = './galaxy-roles'
+      end
+    end
+
 ## copy back and forth
 
     vagrant plugin install vagrant-scp
