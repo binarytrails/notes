@@ -2,8 +2,9 @@
 
 ## ansible-playbook
 
-    # pass env vars
-    ANSIBLE_FORCE_COLOR=1 ansible-playbook ...
+    # sample run with controls using env vars
+    PYTHONUNBUFFERED=1 ANSIBLE_FORCE_COLOR=1 ANSIBLE_ROLES_PATH='./roles' \
+        ansible-playbook playbooks/play.yml --inventory-file=hosts
 
     # target specific task.yml
     --list-tasks <playbook>
@@ -21,6 +22,11 @@
       loop: "{{ ansible_play_batch }}"
       loop_control:
         index_var: index
+
+## ansible-galaxy
+
+    # create offline template
+    ansible-galaxy init myrole --offline
 
 ## tasks
 
