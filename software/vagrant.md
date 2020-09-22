@@ -2,7 +2,7 @@
 
 ## specify vagrantfile
 
-    VAGRANT_VAGRANTFILE=Vagrant-2 vagrant up
+    VAGRANT_VAGRANTFILE=Vagrantfile.OS2 VAGRANT_DOTFILE_PATH=.vagrant_os2 vagrant up
 
 ## vbox
 
