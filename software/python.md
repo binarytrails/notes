@@ -30,6 +30,15 @@
     >>> next(item for item in dicts if item["name"] == "Pam")
     {'age': 7, 'name': 'Pam'}
 
+# flask
+
+    # generate cookie
+    response = flask.Response('Hello World') # can be html
+    response.set_cookie('mycookie', cookie, domain='www.mydomain.com')
+
+    # load cookie
+    cookie = request.cookies.get('mycookie')
+
 # ipython
 
 ## autoreload
