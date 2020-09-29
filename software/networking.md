@@ -26,6 +26,15 @@ Pointers to the sources of data that the programs are using.
 1   stdout  Standard Output
 2   stderr  Standard Error
 
+# Sockets
+
+## ss
+
+> another utility to investigate sockets
+
+    # all,numeric(noresolve),tcp,listen,processes
+    ss -antlp
+
 # Send a basic GET request to the application on server port
 
         cat <(echo "GET \file.txt HTTP/1.0" && echo) - | nc 1.1.1.1 2222 -vv
