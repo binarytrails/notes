@@ -163,3 +163,8 @@ Here are some commands to help you start up
     Mod-q       Quit dvtm.
 
 (More commands)[http://www.brain-dump.org/projects/dvtm/]
+
+# user
+
+    # rename
+    usermod --login new_username old_username
