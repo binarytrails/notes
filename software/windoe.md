@@ -14,6 +14,21 @@
     # find / -name *toto*
     where /r c:\ my.exe
 
+    # download
+    Invoke-WebRequest <url> -Outfile file
+
+    # extract archive
+    Expand-Archive file.zip -Destination /myfile
+
+    # cmake build instead of make
+    cmake --build . --config Release
+
+    # automate things
+    echo "ls" > run-ls.ps1
+
+    # rm -rf
+    Remove-Item .\folder -Recurse -Force
+
 ## registry
 
     # Remove the 260 Character Path Limit
