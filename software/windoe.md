@@ -29,6 +29,10 @@
     # rm -rf
     Remove-Item .\folder -Recurse -Force
 
+## common places
+
+     c:\windows\system32\drivers\etc\hosts
+
 ## registry
 
     # Remove the 260 Character Path Limit
