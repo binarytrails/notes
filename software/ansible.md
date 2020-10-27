@@ -63,6 +63,20 @@
         line: "Port 2222"
       notify: "Restart sshd"
 
+## vars
+
+**combining:**
+
+    # vars/main.yml
+    __build_packages:
+      - same1
+      - same2
+    __build_packages_specific_os:
+      - uncommon
+
+    # somewhere else
+    build_packages: "{{ __build_packages + __build_packages_specific_os }}"
+
 ## callback plugins
 
 https://serverfault.com/questions/835901/ansible-json-output
