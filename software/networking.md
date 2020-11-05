@@ -65,3 +65,13 @@ Alien ship : execute it in a terminal of a virtual machine on host only adapter
 3. Interact directly with the TCP protocol : /dev/tcp/ip/port/
 4. Send bash stdin -> stdout : 0>&1  * Resend to Roger what he is typing
 5. All in background : &
+
+# cURL
+
+## passing url with brackets
+
+    -g/--globoff
+      This  option  switches  off  the "URL globbing parser". When you set this option, you can
+      specify URLs that contain the letters {}[] without having them being interpreted by  curl
+      itself.  Note  that  these  letters  are not normal legal URL contents but they should be
+      encoded according to the URI standard.
