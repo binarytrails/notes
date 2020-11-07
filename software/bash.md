@@ -14,3 +14,7 @@
 # loop over files with spaces
 
     find . -type f -name "*.priv" -print0 | while IFS= read -r -d '' file; do echo "$file"; done
+
+# get filename no extension
+
+    "${pkey%.*}"
