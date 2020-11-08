@@ -1,3 +1,17 @@
+# Connecting
+
+    irssi -c irc.freenode.net
+
+# Registering
+
+    /query NickServ HELP REGISTER
+    /query NickServ HELP IDENTIFY
+
+# Identifying
+
+    /nick <mynick>
+    /msg NickServ identify <mypassword>
+
 # Ignoring
 
     /ignore * JOINS PARTS QUITS
