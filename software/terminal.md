@@ -43,6 +43,12 @@ Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR 
 
     find . -name *_test.rb | sed -e "p;s/test/spec/" | xargs -n2 mv
 
+# Formating
+
+## lines to commas
+
+    cat data.txt | paste -s -d, -
+
 # Command output as file
 
 http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
