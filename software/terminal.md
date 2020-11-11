@@ -49,6 +49,10 @@ Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR 
 
     cat data.txt | paste -s -d, -
 
+## remove head and tail banners
+
+    cat ssh.key | tail -n +2 | head -n -1
+
 # Command output as file
 
 http://www.gnu.org/software/bash/manual/bash.html#Process-Substitution
