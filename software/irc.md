@@ -36,3 +36,14 @@
 # Change theme
 
     /SET theme name
+
+# #archlinux
+
+## phrik
+
+    # public
+    !welcome
+    !rainbow hello
+
+    # private (alt+<arrows> to change the window)
+    /query phrik manjaro{2..12}
