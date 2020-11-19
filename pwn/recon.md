@@ -63,3 +63,46 @@ Normal ping to code.google.com is blocked but in a form of TCP SYN request (-S) 
     TTY2 $ nc github.com 80
     GET / HTTP/1.0
 
+# active
+
+## stealth scanning
+
+### disable ipv6
+
+    # check current
+    $ sudo sysctl -a | grep net.ipv6.conf.lo.disable
+    net.ipv6.conf.lo.disable_ipv6 = 0
+    net.ipv6.conf.lo.disable_policy = 0
+
+    # /etc/sysctl.conf
+    net.ipv6.conf.all.disable_ipv6 = 1
+    net.ipv6.conf.default.disable_ipv6 = 1
+    net.ipv6.conf.lo.disable = 1
+
+    # load them from config files
+    sysctl --system --pattern '^net.ipv6'
+
+    # or apply one by one
+    sysctl -w net.ipv6.conf.all.disable_ipv6=1
+    sysctl -w net.ipv6.conf.default.disable_ipv6=1
+    sysctl -w net.ipv6.conf.lo.disable=1
+
+### nmap
+
+    nmap --spoof-mac-Cisco --data-length 24 –T paranoid –max-hostgroup  \
+        1 – max-parallelism 10 -PN  -f –D 10.1.20.5,RND:5,ME --v –n –sS \
+        –sV–oA /tmp/nmap-out –p T:1-1024  –random-hosts 10.1.2.9 10.1.2.16
+
+        -D 10.1.20.5, RND:5,ME (run decoy scans at the same time)
+        -n (no dns resolution)
+        -oA (save the results in all formats)
+
+### msfconsole
+
+#### change useragent
+
+    use auxiliary/fuzzers/http/http_from_field
+    auxiliary(http_form_field) > set UserAgent
+    set UserAgent Googlebot/1.9 (+http://www.google.com/bot.html)
+
+https://developer.chrome.com/multidevice/user-agent
