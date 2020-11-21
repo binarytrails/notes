@@ -88,3 +88,12 @@ Find accessed secrets
 ### ssh key
 
     ~/.ssh/google_compute_engine
+
+## scc (security command center)
+
+### sources
+
+Always filter ```sourceProperties.source:<name>```, in terminal:
+
+    gcloud alpha scc sources describe <org-id> --source-display-name "<name>" --project <project>
+
