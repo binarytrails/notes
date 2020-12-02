@@ -14,3 +14,8 @@ chmod won't work:
 
     $ lsattr /etc/resolv.conf
     --------------e----- /etc/resolv.conf
+
+## gpu
+
+    # get information with kernel driver
+    lspci | grep ' VGA ' | cut -d" " -f 1 | xargs -i lspci -v -s {}
