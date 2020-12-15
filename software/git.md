@@ -76,6 +76,10 @@ and then do:
     # remote
     git push --delete origin <name>
 
+# Make a patch
+
+    git diff commit1 commit2 > file.patch
+
 # Commit messages
 
 See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).

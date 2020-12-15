@@ -45,6 +45,10 @@ Find at / (path1 OR path2) if found dir return True & don't descend (-prune) OR 
 
 # Formating
 
+## make a patch
+
+    diff -Naur file1 file2 > file.patch
+
 ## lines to commas
 
     cat data.txt | paste -s -d, -
