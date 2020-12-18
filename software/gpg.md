@@ -44,6 +44,10 @@ You can always export it to file by adding [> output]
 
     echo "encrypted message" | gpg -d > output
 
+Decrypt a binary file:
+
+    gpg -d <filename>
+
 ## Exporting
 
     gpg --export -a "Roger" > public.key
