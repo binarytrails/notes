@@ -68,6 +68,44 @@ import issue: https://stackoverflow.com/a/60821519
 
     DATA=$(printf 'Kaboumin'|base64) && gcloud functions call NAME --data '{"data":"'$DATA'"}'
 
+## auth
+
+### http
+
+#### curl
+
+    curl -H "Authorization: Bearer $(gcloud auth print-identity-token)" https://<project>.cloudfunctions.net/<function> \
+         -H "Content-Type:application/json" -d '{"key":"value"}'
+
+#### python
+
+##### using gcloud tools
+
+    import subprocess
+    token = '{}'.format(subprocess.Popen(args="gcloud auth print-identity-token", stdout=subprocess.PIPE, shell=True).communicate()[0])[2:-3]
+
+    import requests
+    r = requests.post(url, headers={"Authorization":"Bearer {}".format(token)})
+
+##### using token generator
+
+1. It's important to understand the ```metadata``` server is internal to Google.
+2. Make sure to add the callee Service Account to the caller's permissions
+
+    REGION = 'us-central1'
+    PROJECT_ID = [PROJECT ID]
+    RECEIVING_FUNCTION = [FUNC NAME]
+    function_url = f'https://{REGION}-{PROJECT_ID}.cloudfunctions.net/{RECEIVING_FUNCTION}'
+    metadata_server_url = \
+        'http://metadata/computeMetadata/v1/instance/service-accounts/default/identity?audience='
+    token_full_url = metadata_server_url + function_url
+    token_headers = {'Metadata-Flavor': 'Google'}
+
+    token_response = requests.get(token_full_url, headers=token_headers)
+    jwt = token_response.text
+    function_headers = {'Authorization': f'bearer {jwt}'}
+    r = requests.get(function_url, headers=function_headers)
+
 ## logging
 
 Read last logs
