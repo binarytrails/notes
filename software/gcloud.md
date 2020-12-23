@@ -135,3 +135,25 @@ Always filter ```sourceProperties.source:<name>```, in terminal:
 
     gcloud alpha scc sources describe <org-id> --source-display-name "<name>" --project <project>
 
+### filtering
+
+    gcloud alpha scc findings list <org-id> --project <project-id> --filter="state=\"ACTIVE\" AND sourceProperties.source=\"<NAME>\"" --format="table(finding.category, finding.eventTime,resource.projectDisplayName)" --limit 20
+
+    gcloud alpha scc findings list <ord-id> --project <project-id> --filter="state=\"ACTIVE\" AND sourceProperties.source=\"<NAME>\" AND category=\"<NAME>\"" --format="table(finding.category, finding.eventTime,resource.projectDisplayName)" --limit 20
+
+source, a faster method:
+
+    gcloud alpha scc findings list <org-id> --project <project-id> --format="table(finding.category, finding.eventTime,resource.projectDisplayName)" --source=<source-id> --limit 20
+
+### findings
+
+    gcloud alpha scc findings list <org-id> --project <project-id> --filter="state=\"ACTIVE\" AND category=\"<CATEGORY>\""
+
+### notifications
+
+    gcloud alpha scc notifications list <org-id>
+
+### marks
+
+    gcloud alpha scc assets update-marks organizations/<org-id>/assets/<asset-id> --security-marks allow_public_ip_address=true --update-mask marks.allow_public_ip_address --project=<project-id>
+
