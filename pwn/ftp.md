@@ -1,16 +1,12 @@
 # ftp
 
-## connect
+## telnet
 
     $ telnet <ip> 21
     USER anonymous
     PASS anonymous
-    HELP
 
-    $ ftp <ip>
-    help
-
-## telnet native commands
+### telnet commands
 
     PORT 127,0,0,1,0,80 Indicate the ftp server to establish a connection with the IP 127.0.0.1 in port 80 (you need to put the 5th char as "0" and the 6th as the port in decimal or use the 5th and 6th to express the port in hex).
     EPRT |2|127.0.0.1|80| Indicate the ftp server to establish a TCP connection (indicated by "2") with the IP 127.0.0.1 in port 80. supports IPv6.
@@ -23,7 +19,11 @@
     TYPE i Set transfer to binary
     PASV Open a passive connection and will indicate the user were he can connects
 
-## ftp binary commands
+## ftp
+
+    ftp <ip>
+
+### ftp commands
 
     status
     system
@@ -33,6 +33,19 @@
     rename <file> <file2>
     delete <file>
     help
+
+### ftp automation
+
+    $ touch test
+    $ cat ftp-connect.txt
+    open <ip> 21
+    user anonymous anonymous
+    status
+    put test
+    delete test
+    bye
+    $ ftp -v -n < ftp-connect.txt
+    $ ftp -v -n < ftp-connect.txt > ftp-connect.log
 
 ## mount
 
