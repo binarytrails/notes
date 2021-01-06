@@ -94,3 +94,10 @@ restired bash
 
     ssh ruser@127.0.0.1  -t "bash --noprofile"
     cd /etc
+
+## interactive shell
+
+### su: must be run from a terminal
+
+    echo "import pty; pty.spawn('/bin/bash')" > /tmp/asdf.py
+    python /tmp/asdf.py
