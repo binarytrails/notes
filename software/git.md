@@ -1,47 +1,50 @@
-# Update to upstream (across repositories)
+# git
 
+## common things
+
+    # Update to upstream (across repositories)
     git remote add upstream <git repo url>
     git fetch upstream
     git pull upstream master
 
-# Overwrite by remote
-
+    # Overwrite by remote
     git fetch --all
     git reset --hard origin/master
 
-# Add modified and deleted to staging
-
+    # Add modified and deleted to staging
     git add -u
 
-# Forget the staged files
-
+    # Forget the staged files
     git restore --staged
 
-# Revert file to a past version
-
+    # Revert file to a past version
     git checkout hash-id path-to-file
 
-# Checkout a pull-request
-
+    # Checkout a pull-request
     git fetch origin pull/ID/head:BRANCHNAME
 
-# Undo changes on one file
-
+    # Undo changes on one file
     git checkout -- path/to/file
 
-# Remove commit's from Github
-
+    # Remove commit's from Github
     git reset --soft hash-id
-
-or (where 1 is the number of commits to rollback)
-
+    # or (where 1 is the number of commits to rollback)
     git reset --soft HEAD~1
-
-and then do:
-
+    # and then do:
     git push --force
 
-# Merge & squash
+    # Impersonate and commit
+    git -c user.name="<name>" -c user.email="<email>" commit -a -m "10 4"
+
+    # delete local
+    git branch -D <name>
+    # delete remote
+    git push --delete origin <name>
+
+    # Make a patch
+    git diff commit1 commit2 > file.patch
+
+## Merge & squash
 
     # To ensure safety go to temporary folder and clone your current master
     git clone git://github.com/<user>/<repo>.git master
@@ -69,18 +72,7 @@ and then do:
     git log                         # verify
     git push origin master          # publish
 
-# Delete
-
-    # local
-    git branch -D <name>
-    # remote
-    git push --delete origin <name>
-
-# Make a patch
-
-    git diff commit1 commit2 > file.patch
-
-# Commit messages
+## Commit messages
 
 See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/).
  In short, follow this 7 golden rules:
@@ -95,7 +87,7 @@ See: [How to Write a Git Commit Message](http://chris.beams.io/posts/git-commit/
 
 Imo, 7 is optional depending on the commit size / complexity and project stage.
 
-# Rename submodule
+## Rename submodule
 
 ```git mv a b``` - relocate its working tree and adjust the paths in the .gitmodules file
 
