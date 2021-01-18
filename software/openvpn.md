@@ -12,3 +12,7 @@
     $ cat login.conf
     user
     pass
+
+## NetworkManager
+
+    ls /etc/NetworkManager/system-connections/*.nmconnection
