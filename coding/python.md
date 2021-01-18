@@ -36,6 +36,31 @@
     >>> next(item for item in dicts if item["name"] == "Pam")
     {'age': 7, 'name': 'Pam'}
 
+# parsing
+
+## text files
+
+    In [3]: from string import Template
+       ...: 
+       ...: d = {
+       ...:     'title': 'This is the title',
+       ...:     'subtitle': 'And this is the subtitle',
+       ...:     'list': '\n'.join(['first', 'second', 'third'])
+       ...: }
+       ...: template = """$title
+       ...: $subtitle
+       ...: $list
+       ...: """
+       ...: src = Template(template)
+       ...: result = src.substitute(d)
+       ...: print(result)
+       ...: 
+    This is the title
+    And this is the subtitle
+    first
+    second
+    third
+
 # flask
 
     # generate cookie
@@ -107,6 +132,7 @@ Once you want to uninstall you can use xargs to do the removal:
     1
 
 # Get Callable Names
+
 https://docs.python.org/2/library/functions.html#dir
 
     import struct
@@ -128,7 +154,7 @@ https://docs.python.org/2/library/functions.html#dir
     > dir(s)
     ['area', 'perimeter', 'location']
   
- # System command as main process
+# System command as main process
     
     command = "foo arg1 arg2"
     try:
