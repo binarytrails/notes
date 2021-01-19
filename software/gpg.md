@@ -26,6 +26,10 @@ Another way is to use [more] to pass the file content to [gpg].
 
     more message | gpg -e -a -r "Roger"
 
+Encrypt a file:
+
+    gpg -e -r toto -o toto.pgp toto.txt
+
 ## Decrypting
 
     echo "-----BEGIN PGP MESSAGE-----
@@ -47,6 +51,7 @@ You can always export it to file by adding [> output]
 Decrypt a binary file:
 
     gpg -d <filename>
+    gpg -d toto.pgp > toto.txt
 
 ## Exporting
 
