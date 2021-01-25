@@ -7,6 +7,8 @@
     :retab              Replace tabs according to your settings
     :e ++ff=unix        Display CRLF as ^M
     :%s/\r//g           Remove ^M
+    :%s/\s\+$//g        Remove trailing white spaces
+    :%s/^\n//g          Remove empty white lines
     :w !sudo tee %      Save as sudo
 
     :set background=light
