@@ -74,3 +74,6 @@
     # find where it installs
     findstr /spin "mypackage" C:\ProgramData\chocolatey\logs\chocolatey.log
 
+## partitioning
+
+    mkfs.msdos -F 32 /dev/sdx

@@ -1,1 +1,0 @@
-sudo mkfs.msdos -F 32 /dev/sdx
