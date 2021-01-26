@@ -5,3 +5,7 @@
     S   sleeping
     T   traced or stopped
     Z   a defunct ("zombie") process
+
+## see process tree
+
+    pstree
