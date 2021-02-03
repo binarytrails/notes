@@ -74,6 +74,8 @@
 
 ## autoreload
 
+    %load_ext autoreload
+
     # Reload all modules (except those excluded by %aimport) automatically now.
     %autoreload
 
