@@ -77,3 +77,8 @@
 ## partitioning
 
     mkfs.msdos -F 32 /dev/sdx
+
+## mount from arch linux
+
+    pacman -S ntfs-3g
+    mount /dev/sdX /mnt
