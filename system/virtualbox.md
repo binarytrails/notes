@@ -67,3 +67,10 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
 ## Resize screen dimentions by hand
 
     vboxmanage setextradata "roger-vm" "CustomVideoMode1" "1366x768x32"
+
+## Unable to insert the virtual optical disk VERR_PDM_MEDIA_LOCKED
+
+    sudo su
+    cd /media
+    mkdir cdrom
+    mount /dev/cdrom /media/cdrom
