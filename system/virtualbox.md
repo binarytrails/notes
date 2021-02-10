@@ -74,3 +74,9 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
     cd /media
     mkdir cdrom
     mount /dev/cdrom /media/cdrom
+
+## Start tag expected, '<' not found
+
+    cd ~/VirtualBox\ VMs/<name>
+    cp <name>.vbox <name>-broken-1.vbox
+    cp <name>.vbox-prev <name>.vbox
