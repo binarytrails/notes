@@ -63,6 +63,15 @@
 
 # flask
 
+    # smol server
+    import flask
+    app = flask.Flask('smol-server')
+    @app.route('/', methods=['POST'])
+    def root():
+        print(flask.request.json)
+        return flask.Response('success')
+    app.run(host='127.0.0.1', port=8080, debug=True)
+
     # generate cookie
     response = flask.Response('Hello World') # can be html
     response.set_cookie('mycookie', cookie, domain='www.mydomain.com')
