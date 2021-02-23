@@ -9,6 +9,25 @@
     # find package files
     rpm -ql <name>
 
+## centos6 legacy
+
+### connect to ethernet
+
+    $ dhclient eth0
+    $ cat /etc/sysconfig/network | grep NETWORKING=yes
+
+    $ vi /etc/sysconfig/network-scripts/ifcfg-eth0
+    DEVICE="eth0"
+    BOOTPROTO="dhcp"
+    ONBOOT="yes"
+    NM_CONTROLLED="no"
+
+    $ service network restart
+
+### disable dead keys
+
+    yum install <package> --nogpgcheck
+
 ## roller coaster
 
 ### lastlog is gigantic
