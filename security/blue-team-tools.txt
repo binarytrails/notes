@@ -1,0 +1,10 @@
+# blue-team tools
+
+## fingerprinting
+
+### ssl/tls
+
+- JA3 is a standard for creating SSL client fingerprints in an easy to produce and shareable way.
+
+    https://github.com/salesforce/ja3
+
