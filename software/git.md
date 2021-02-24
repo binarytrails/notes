@@ -44,6 +44,11 @@
     # Make a patch
     git diff commit1 commit2 > file.patch
 
+    # Recover from hard reset
+    git reflog show
+    git reset HEAD@{2}
+    git push -f
+
 ## Merge & squash
 
     # To ensure safety go to temporary folder and clone your current master
