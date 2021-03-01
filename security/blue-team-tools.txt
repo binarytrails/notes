@@ -1,10 +1,47 @@
 # blue-team tools
 
-## fingerprinting
+## web
 
-### ssl/tls
+- Domain name permutation engine for detecting homograph phishing attacks, typo squatting, and brand impersonation
+
+    https://github.com/elceef/dnstwist
+
+- Lookyloo: preview with screencapture & detect behavior
+
+        lookyloo --query https://example.com --listing
+
+    https://github.com/Lookyloo/PyLookyloo
 
 - JA3 is a standard for creating SSL client fingerprints in an easy to produce and shareable way.
 
     https://github.com/salesforce/ja3
 
+## ioc (indicator of compromise)
+
+- ioc-fanger: Fang and defang indicators of compromise.
+
+        import ioc_fanger
+
+        ioc_fanger.defang("example.com http://bad.com/phishing.php")  # example[.]com hXXp://bad[.]com/phishing[.]php
+        ioc_fanger.fang("example[.]com hXXp://bad[.]com/phishing[.]php")  # example.com http://bad.com/phishing.php
+
+    https://github.com/ioc-fang/ioc-fanger
+
+- ipgrep: Extract, defang, resolve names and IPs from text
+
+    https://github.com/jedisct1/ipgrep
+
+- ioc_finder : Simple, effective, and modular package for parsing observables (indicators of compromise (IOCs), network data, and other, security related information) from text. It uses grammars rather than regexes which makes it more readable, maintainable, and hackable.
+
+        from ioc_finder import find_iocs
+        text = "This is just an foobar.com https://example.org/test/bingo.php"
+        iocs = find_iocs(text)
+        print(iocs['domains'])  # ['foobar.com', 'example.org']
+        print(iocs['urls'])  # ['https://example.org/test/bingo.php']
+
+    https://github.com/fhightower/ioc-finder
+
+## operative systems
+
+- SecurityOnion
+- SELKS
