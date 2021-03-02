@@ -16,6 +16,14 @@
 
     https://github.com/salesforce/ja3
 
+- dnstwist: Domain name permutation engine for detecting homograph phishing attacks, typo squatting, and brand impersonation
+
+    Usually thousands of domain permutations are generated - especially for longer input domains. In such cases, it may be practical to display only the ones that are registered. Ensure your DNS server can handle thousands of requests within a short period of time. Otherwise, you can specify an external DNS server with --nameservers argument.
+
+        dnstwist --registered domain.name
+
+    https://github.com/elceef/dnstwist
+
 ## ioc (indicator of compromise)
 
 - ioc-fanger: Fang and defang indicators of compromise.
@@ -42,6 +50,31 @@
     https://github.com/fhightower/ioc-finder
 
 ## operative systems
+
+- inotify-tools is a C library and a set of command-line programs providing a simple interface to inotify.
+
+        # monitor all files in folder for changes
+        $ inotifywait -m -r --format '%w%f %e' -e modify /tmp/test/
+        /tmp/test/toto6 MODIFY
+
+    https://github.com/inotify-tools/inotify-tools
+
+- lsof: list open files
+
+        $ cat > /tmp/LOG &
+        cat > /tmp/LOG &
+        [1] 18083
+        $ lsof -p 18083
+        lsof -p 18083
+        COMMAND   PID   USER   FD   TYPE DEVICE  SIZE/OFF     NODE NAME
+        cat     18083 yamato    1w   REG   0,44         0 54550934 /tmp/LOG
+
+        # monitor inotify files
+        $ lsof -n | grep inotify
+
+    https://github.com/lsof-org/lsof
+
+### bundles
 
 - SecurityOnion
 - SELKS
