@@ -49,6 +49,14 @@
     git reset HEAD@{2}
     git push -f
 
+    # Tagging (versions)
+    git tag -a 0.1.0 -m 'version 0.1.0' # will pick up last commit message and changes
+    git push origin 0.1.0
+    # make sure no local or remote branch with the same name exists, otherwise:
+    git branch -D 0.1.0         # delete local
+    git push -d origin 0.1.0    # delete remote
+    # now you can push the tag, they are not the same but interdependant
+
 ## Merge & squash
 
     # To ensure safety go to temporary folder and clone your current master
