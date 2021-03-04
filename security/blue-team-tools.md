@@ -24,6 +24,29 @@
 
     https://github.com/elceef/dnstwist
 
+## email
+
+### dmarc
+
+> DMARC is an email authentication protocol. It is designed to give email domain owners the ability to protect their domain from unauthorized use, commonly known as email spoofing. The purpose and primary outcome of implementing DMARC is to protect a domain from being used in business email compromise attacks, phishing emails, email scams and other cyber threat activities.
+
+- checkdmarc: A parser for SPF and DMARC DNS records
+
+    https://github.com/domainaware/checkdmarc
+
+- pyemailprotectionslib: Python library for SPF, DKIM, and DMARC email protections.
+
+        import emailprotectionslib.spf as spf
+        import emailprotectionslib.dmarc as dmarc
+        spf_record = spf.SpfRecord.from_domain("google.com")
+        dmarc_record = dmarc.DmarcRecord.from_domain("google.com")
+
+    https://github.com/lunarca/pyemailprotectionslib
+
+- Implementation details & flow chart diagram (at bottom) of particularities
+
+    https://docs.microsoft.com/en-us/microsoft-365/security/office-365-security/use-dmarc-to-validate-email
+
 ## ioc (indicator of compromise)
 
 - ioc-fanger: Fang and defang indicators of compromise.
