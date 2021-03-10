@@ -12,8 +12,12 @@
 # attributes
 
     args.foo                        # raises an AttributeError
+
     hasattr(args, 'foo')            # returns False
     getattr(args, 'foo', 'other')   # returns 'other'
+
+    sys.sizeof([1,2])               # includes marginal space (garbage collection overhead)
+    [1,1].__sizeof__()              # space allocation of an object w/o additional garbage value
 
 # detach process
 
