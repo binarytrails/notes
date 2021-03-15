@@ -30,6 +30,12 @@ Encrypt a file:
 
     gpg -e -r toto -o toto.pgp toto.txt
 
+Multiple recipients:
+
+> GPG encrypts the file once with a symmetric key, then places a header identifying the target keypair and an encrypted version of the symmetric key. When encrypted to multiple recipients, this header is placed multiple times providing a uniquely encrypted version of the same symmetric key for each recipient.
+
+    gpg -e -r alice@example.com -r bob@example.com clear-message.txt
+
 ## Decrypting
 
     echo "-----BEGIN PGP MESSAGE-----
