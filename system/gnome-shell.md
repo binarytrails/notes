@@ -1,4 +1,6 @@
-# Touchpad tap
+# gnome-shell
+
+## touchpad tap
 
 To see what is set:
 
@@ -11,7 +13,7 @@ Inverse actions done with two to three fingers:
     synclient TapButton2=3
     synclient TapButton3=2
 
-# Gnome gdm login background
+## gdm login background
 
 The only one that worked for me on Arch Linux:
 
@@ -24,7 +26,7 @@ Or verify using dconf:
 
     sudo -u gdm dconf read /org/gnome/desktop/screensaver/picture-uri
 
-# Gnome-terminal profiles
+## gnome-terminal profiles
 
 * Backup current
 
@@ -38,9 +40,18 @@ Or verify using dconf:
 
     dconf load /org/gnome/terminal/ < org.gnome.terminal
 
-# NetworkManager
+## getting rid of tracker
 
-## MAC Randomization during Wi-Fi scanning is crashing the connection
+> Tracker is a filesystem indexer, metadata storage system and search tool
+
+    systemctl --user mask tracker-store.service tracker-miner-fs.service tracker-miner-rss.service \
+        tracker-miner-extract.service tracker-miner-apps.service tracker-writeback.service
+    tracker reset --hard
+    killall tracker-miner-fs-3
+
+## NetworkManager
+
+### mac randomization during wi-fi scanning is crashing the connection
 
 This is a very weird bug. I have two laptops using ArchLinux with Gnome Shell both are using same packages versions. One could connect to the University network and the another one couldn't. After investigation, I found that something was failing related to MAC address as seen in below log. Turns out that desactivating MAC boundcing during a connection solved my issue.
 
@@ -71,4 +82,3 @@ This is a very weird bug. I have two laptops using ArchLinux with Gnome Shell bo
     wifi.cloned-mac-address=stable
 
 This configuration is demonstrated in the [ArchWiki](https://wiki.archlinux.org/index.php/NetworkManager#Configuring_MAC_Address_Randomization) and it is explained in depth on [gnome blog post](https://blogs.gnome.org/thaller/2016/08/26/mac-address-spoofing-in-networkmanager-1-4-0/).
-
