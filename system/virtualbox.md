@@ -1,4 +1,4 @@
-I am assuming you know what are the magnificent [sudo] powers.
+# VirtualBox
 
 ## Recovering VirtualBox after messing with folders
 
@@ -80,3 +80,9 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
     cd ~/VirtualBox\ VMs/<name>
     cp <name>.vbox <name>-broken-1.vbox
     cp <name>.vbox-prev <name>.vbox
+
+## Menu bar disappeared
+
+It means you're in scale mode, to get out:
+
+    Host + c
