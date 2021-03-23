@@ -57,6 +57,10 @@
     git push -d origin 0.1.0    # delete remote
     # now you can push the tag, they are not the same but interdependant
 
+    # github-cli
+    gh issue comment 1              # comment on pr 1
+    gh issue view 1 --comments      # list all comments on pr 1
+
 ## Merge & squash
 
     # To ensure safety go to temporary folder and clone your current master
