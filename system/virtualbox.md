@@ -47,9 +47,11 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
 
     VBoxManage internalcommands createrawvmdk -filename usb_sdc.vmdk -rawdisk /dev/sdc
 
-## Debian Guess Additions image location
+## Install Guess Additions
 
-    ls -l /usr/share/virtualbox/VboxGuestAdditions.iso
+    $ pacman -S virtualbox-guest-iso
+    $ pacman -Ql virtualbox-guest-iso
+    virtualbox-guest-iso /usr/lib/virtualbox/additions/VBoxGuestAdditions.iso
 
 ## Usb not detected
 
