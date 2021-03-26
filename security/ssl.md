@@ -1,5 +1,8 @@
 # openssl
 
+    # get server ssl version, session and options
+    openssl s_client -connect 127.0.0.1:8080
+
     # generate private key
     openssl genrsa -passout pass:x -out identity.key 4096
 
