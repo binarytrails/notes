@@ -82,3 +82,35 @@
 
     pacman -S ntfs-3g
     mount /dev/sdX /mnt
+
+## disable updates / reboots
+
+### windows 10
+
+1. Click Start and type Task Scheduler
+
+    1. Navigate to Task Scheduler Library >> Microsoft >> Windows >> UpdateOchestrator
+
+    2. To disable automatic reboots right-click on Reboot and select disable.
+
+2. Use Windows Update GPO.
+
+    1. Open your start menu and type Group, then click Edit group policy
+
+    2. Expand Computer Configuration \ Administrative Templates \ Windows Components \ Windows Update
+
+    3. Double click Configure Automatic Updates and enable the policy, and configure it as needed.
+
+    4. Also other group policy in Windows Update could be helpful. For example: No auto-restart with logged on users for scheduled automatic update installations
+
+3. Use Registry
+
+    1. Press Win + R and type regedit then hit Enter
+
+    2. Navigate to HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\Windows\WindowsUpdate\AU (you may need to create the keys manually if they don't exist)
+
+    3. Create a new DWORD value called AUOptions and enter a value of either 2 or 3.
+
+        2 = Notify before download
+
+        3 = Automatically download and notify of installation
