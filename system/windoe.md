@@ -103,7 +103,7 @@
 
     4. Also other group policy in Windows Update could be helpful. For example: No auto-restart with logged on users for scheduled automatic update installations
 
-3. Use Registry
+3. Use Registry for WindwosUpdate
 
     1. Press Win + R and type regedit then hit Enter
 
@@ -114,3 +114,17 @@
         2 = Notify before download
 
         3 = Automatically download and notify of installation
+
+4. User Registry to Disabled Windows Software Protection Service
+
+    1. HKLM/SYSTEM/CurrentControlSet/Services/sppsvc
+
+    2. Set Start value to 4
+
+In order for everything to work Reboot.
+
+## Event ID
+
+    # Event ID 1074 - Random and unsolicited system shutdown
+    # Filter for a shutdown event Event:
+    eventvwr.msc > Windows > System Log > Filter with Event ID '1074'
