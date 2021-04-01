@@ -13,9 +13,17 @@
     gcloud functions logs read NAME
     # --format=json --format=csv\('KEY'\) --format=get\('KEY'\) --format=value\('KEY'\)
 
-    # connect with identity aware proxy
+    # vm connect with identity aware proxy
     gcloud compute ssh <vm> --tunnel-through-iap
+
+    # vm local ssh key
     ls -l ~/.ssh/google_compute_engine
+
+    # vm logging agent install for centos
+    gcloud beta compute ssh <vm> --project=<project> --zone=<zone> \
+        --command="curl -sSO https://dl.google.com/cloudagents/add-monitoring-agent-repo.sh \
+            && sudo bash add-monitoring-agent-repo.sh \
+            && sudo yum install -y stackdriver-agent && sudo service stackdriver-agent start"
 
     # create git repo
     gcloud source repos create <repo> --project=<project>
