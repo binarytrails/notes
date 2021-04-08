@@ -13,6 +13,19 @@ An App has Assets, define those for service account specific access:
 
 Don't define variables following the app docs often it will not work. Try previous first.
 
+### logs
+
+    /var/log/phantom/spawn.log          # ingestion
+    /var/log/phantom/wsgi.log           # sockets
+
+### development
+
+There are various projects mocking the Phantom env otherwise, Phantom has a community ```.ova``` with a free lisence for one user.
+
+In the end, to be able to install the app you will need to compile it on a Phantom instance since their compiling script is only given in ```pyc```.
+
+https://docs.splunk.com/Documentation/Phantom/4.10.2/DevelopApps/Tutorial
+
 ## playbooks
 
 ### flow
@@ -33,6 +46,7 @@ Don't define variables following the app docs often it will not work. Try previo
 ### format
 
 - Json format uses double quotes ```{{"key":"value"}}``` to say it is a json object.
+- Use %% something %% to multiplex
 
 ## artifacts
 

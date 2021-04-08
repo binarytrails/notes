@@ -1,5 +1,24 @@
 # splunk
 
+## regex
+
+    | rex field=data.payload.raw "^<(?<id>.*)>.*digitkey=(?<digitkey>\d+)\s.*wordkey=\"(?<wordkey>\w+)\"\s(?<tail>.*)$"
+
+## filtering
+
+    # avoid nulls
+    index="sample" | rex ... | where isnotnull(field1)
+    index="sample" "data.payload.raw"="*" | rex ...
+
+## formatting
+
+    # tables
+    | table field1, field2 | where isnotnull(field1)
+
+    # grouping
+    | stats count by myfield
+    | stats values(user) by source, dest
+
 ## searches
 
     # find who searched what
