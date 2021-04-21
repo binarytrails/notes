@@ -3,18 +3,21 @@
 ## regex
 
     | rex field=data.payload.raw "^<(?<id>.*)>.*digitkey=(?<digitkey>\d+)\s.*wordkey=\"(?<wordkey>\w+)\"\s(?<tail>.*)$"
-    
+
     # matching n occurences
     "^[a-z]{0,10}$"                     # a-z from 0 to 10
-    # {3} Exactly 3 occurrences;
-    # {6,} At least 6 occurrences;
-    # {2,5} 2 to 5 occurrences.
+                                        # {3} Exactly 3 occurrences;
+                                        # {6,} At least 6 occurrences;
+                                        # {2,5} 2 to 5 occurrences.
 
 ## filtering
 
     # avoid nulls
     index="sample" | rex ... | where isnotnull(field1)
     index="sample" "data.payload.raw"="*" | rex ...
+    
+    # keep only uniques
+    | dedup field1
 
 ## formatting
 
