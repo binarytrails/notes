@@ -19,6 +19,10 @@
     # keep only uniques
     | dedup field1
 
+    # keep only ones containing these substrings
+    index="data*" data.payload.raw=*"HTTP/1.1"*
+    index="data*" data.payload.raw=*"POST"*"HTTP/1.1"*
+
 ## formatting
 
     # tables
