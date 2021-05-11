@@ -56,3 +56,9 @@ They referenced in {} Format as Template Parameters.
 ## apps vs playbooks
 
 You can chain playbooks by calling one another.
+
+## upgrading
+
+    phenv customfunctions_to_py3 --help        # custom function
+    phenv playbooks_to_py3 --help              # playbooks
+    phenv 2to3 --help                          # apps
