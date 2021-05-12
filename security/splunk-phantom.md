@@ -13,7 +13,9 @@ An App has Assets, define those for service account specific access:
 
 Don't define variables following the app docs often it will not work. Try previous first.
 
-### logs
+### debug
+
+    self.save_progress('screen output')
 
     /var/log/phantom/spawn.log          # ingestion
     /var/log/phantom/wsgi.log           # sockets
