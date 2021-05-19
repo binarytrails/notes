@@ -1,3 +1,7 @@
+# features
+
+    set -m      # enable job control, adds feautures to & (background job): jobs, ctrl+Z, fg, bg
+
 # pipe
 
     # file descriptors: pointers to the sources of data that the programs are using.
