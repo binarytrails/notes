@@ -1,5 +1,8 @@
 # ssh
 
+    # no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
+    ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 ...
+
 ## authorise keys
 
     chmod 700 .ssh
