@@ -36,6 +36,14 @@ https://docs.splunk.com/Documentation/Phantom/4.10.2/DevelopApps/Tutorial
 
 - If you edit the Playbook code with UI Editor, Visual Editor won't be available anymore until all changes revert.
 
+- Common API calls used by the Visual Playbook Editor:
+
+    1. Get data from an app run inside some playbook:
+
+        action_results = phantom.get_action_results(action_run_id=action_run_id)
+
+    https://docs.splunk.com/Documentation/Phantom/4.10.3/PlaybookAPITutorial/TutorialCommonAPICalls
+
 ### star wars: data vs data*
 
     data* = one query per node run = multiplexing
@@ -64,3 +72,4 @@ You can chain playbooks by calling one another.
     phenv customfunctions_to_py3 --help        # custom function
     phenv playbooks_to_py3 --help              # playbooks
     phenv 2to3 --help                          # apps
+
