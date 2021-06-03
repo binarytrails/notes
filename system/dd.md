@@ -1,6 +1,11 @@
-# drive
+# dd
 
-## wipe
+## create live usb
+
+    $ dd if=archlinux-2021.06.01-x86_64.iso of=/dev/sdb bs=4M status=progress
+    $ sync # be patient, it's necessary :)
+
+## wipe drive
 
 * Method 1: filling with zeros
 
