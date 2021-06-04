@@ -1,4 +1,4 @@
-# windoe
+# windows
 
 ## powershell
 
@@ -82,6 +82,14 @@
 
     pacman -S ntfs-3g
     mount /dev/sdX /mnt
+
+## finding windows activation key
+
+    # cmd.exe (sometimes absent here)
+    slmgr/dli
+
+    # powershell (always present if in BIOS)
+    (Get-WmiObject -query &apos;select * from SoftwareLicensingService&apos;).OA3xOriginalProductKey
 
 ## disable updates / reboots
 
