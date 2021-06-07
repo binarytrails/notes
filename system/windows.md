@@ -89,7 +89,7 @@
     slmgr/dli
 
     # powershell (always present if in BIOS)
-    (Get-WmiObject -query &apos;select * from SoftwareLicensingService&apos;).OA3xOriginalProductKey
+    (Get-WmiObject -query 'select * from SoftwareLicensingService').OA3xOriginalProductKey
 
 ## disable updates / reboots
 
