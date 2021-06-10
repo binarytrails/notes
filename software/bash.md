@@ -16,6 +16,9 @@
     # send to file and stdout
     ls 2>&1 | tee /tmp/ls.txt
 
+    # Command output as file
+    diff <(echo "abc") <(echo "abd")
+
 # user
 
     # rename
@@ -78,11 +81,31 @@
     # lines to commas
     cat data.txt | paste -s -d, -
 
+    # convert commas to spaces
+    echo "toto,tata" | tr ',' ' '
+
+    # remove blank lines
+    awk '!/^$/' file
+
+    # change print order
+    echo "1 2 3" | awk '{print $3,$2,$1}'
+
+    # upper to lower case
+    echo "AA" | tr '[:upper:]' '[:lower:]'
+
     # remove head and tail banners
     cat ssh.key | tail -n +2 | head -n -1
 
-    # Command output as file
-    diff <(echo "abc") <(echo "abd") 
+# sorting
+
+    # remove duplicate lines
+    awk '!seen[$0]++' filename
+
+    # uniques case independant (lower everything)
+    cat file | awk '!arr[tolower($1)]++'
+
+    # unique list based on column 1 and 3 (todo to lower case or different)
+    sort -u -t : -k 1,1 -k 3,3 test.txt
 
 # functions
 
