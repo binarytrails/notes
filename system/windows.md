@@ -5,6 +5,9 @@
     # start from cmd.exe
     start powershell
 
+    # show tree with folders and files
+    tree /F
+
     # tail
     cat file.txt -Tail 10
 
