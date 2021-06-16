@@ -1,6 +1,12 @@
+# bashception
+
+    # print each command and their respective output to stdout and log to file
+    bash -x ./script.sh arg1 | tee script.log
+
 # features
 
     set -m      # enable job control, adds feautures to & (background job): jobs, ctrl+Z, fg, bg
+    set -x      # print commands being run
 
 # pipe
 
