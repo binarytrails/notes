@@ -90,8 +90,15 @@
     # convert commas to spaces
     echo "toto,tata" | tr ',' ' '
 
+    # convert new lines to commas
+    echo "toto
+    tata" | tr '\n' ','
+
     # remove blank lines
     awk '!/^$/' file
+
+    # combine two columns
+    echo "1 2 3" | awk '{print $1"-"$2,$3}'
 
     # change print order
     echo "1 2 3" | awk '{print $3,$2,$1}'
