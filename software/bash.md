@@ -30,6 +30,24 @@
     # rename
     usermod --login new_username old_username
 
+    # rename home folder as well
+    usermod -d /home/new_home -m new_usename
+
+    # don't forget to add yourself to groups like of virtualbox
+    usermod -aG vboxsf $(whoami)
+
+    # delete a user
+    userdel username
+
+    # delete a user and it's home folder
+    userdel -r username
+
+    # if a user is running processes you will need to kill them
+    killall -u username
+
+    # delete a user and kill of it's processes as well
+    userdel -f username
+
 # files
 
     # disk space
