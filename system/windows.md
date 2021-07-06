@@ -139,3 +139,15 @@ In order for everything to work Reboot.
     # Event ID 1074 - Random and unsolicited system shutdown
     # Filter for a shutdown event Event:
     eventvwr.msc > Windows > System Log > Filter with Event ID '1074'
+
+## disable Windows Defender (win10)
+
+temporary in settings:
+
+    Windows Security > Virus & threat protection > Virus & threat protection settings
+    Turn off Real-time protection
+    Turn off the Tamper Protection toggle switch
+
+permanetly in policies:
+
+    gpedit.msc > Local Group Policy Editor > Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Antivirus > Double-click the Turn off Microsoft Defender Antivirus policy > Select the Enabled option to disable Microsoft Defender Antivirus
