@@ -5,6 +5,10 @@
     # start from cmd.exe
     start powershell
 
+    # run as administrator
+    Start-Process .\myexe.exe -Verb runAs
+    Start-Process powershell -Verb runAs
+
     # show tree with folders and files
     tree /F
 
