@@ -209,6 +209,10 @@
     xprop -root | grep <window id>
     xprop -id <id>
 
+    # pdf pages to images
+    pdftoppm input.pdf prefix_name -png -f {page} -singlefile
+    pdftoppm input.pdf prefix_name -png
+
 # literacy
 
     # dictionnary
