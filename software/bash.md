@@ -213,6 +213,15 @@
     pdftoppm input.pdf prefix_name -png -f {page} -singlefile
     pdftoppm input.pdf prefix_name -png
 
+    # bookmarks
+    buku -i <file>.html             # import bookmarks
+    buku -s <keyword-or-tag>        # search full match
+    buku --deep <substring>         # search partial match
+    buku -r <regex>                 # search regex
+    buku -d <indice>                # delete specific ones
+    buku -s <tag> -d                # delete all matched
+    buku -d                         # prompt for delete all
+
 # literacy
 
     # dictionnary
