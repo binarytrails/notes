@@ -1,58 +1,5 @@
 # windows
 
-## powershell
-
-    # start from cmd.exe
-    start powershell
-
-    # run as administrator
-    Start-Process .\myexe.exe -Verb runAs
-    Start-Process powershell -Verb runAs
-
-    # show tree with folders and files
-    tree /F
-
-    # tail
-    cat file.txt -Tail 10
-
-    # grep -rni
-    findstr /spin "mystring" /*
-
-    # find / -name *toto*
-    where /r c:\ my.exe
-    Get-ChildItem c:\ -name -recurse something/
-
-    # download
-    Invoke-WebRequest <url> -Outfile file
-
-    # extract archive
-    Expand-Archive file.zip -Destination /myfile
-
-    # cmake build instead of make
-    cmake --build . --config Release
-
-    # automate things
-    echo "ls" > run-ls.ps1
-
-    # rm -rf
-    Remove-Item .\folder -Recurse -Force
-
-### event logs
-
-    Get-EventLog *
-    Get-EventLog -LogName System -Newest 20
-    Get-EventLog -LogName System -EntryType Error
-    Get-EventLog -LogName System -Message *something in the message*
-    Get-EventLog -LogName System -After '11/10/2020 07:00:00'
-
-    $MyEvent = Get-EventLog -LogName System -Newest 1
-    $MyEvent | Select-Object -Property *
-
-    Get-EventLog -LogName System -UserName NT* | Group-Object -Property UserName -NoElement | Select-Object -Property Count, Name
-
-    Get-WinEvent -ListLog * | Format-List -Property LogName
-    (Get-WinEvent -ListLog Security).ProviderNames
-
 ## common places
 
      c:\windows\system32\drivers\etc\hosts
