@@ -65,13 +65,10 @@
     # get filename no extension
     "${pkey%.*}"
 
-# conditions
+# ps
 
-    # check if command exists
-    command=`which mycmd`
-    if [ -z "$command" ]; then
-        echo "Command not found"
-    fi
+    # find processes who are using the files
+    find <folder> -print0 | xargs -0 lsof -n
 
 # finding
 
@@ -97,7 +94,7 @@
     # loop over files with spaces
     find . -type f -name "*.priv" -print0 | while IFS= read -r -d '' file; do echo "$file"; done
 
-# formating
+# formatting
 
     # make a patch
     diff -Naur file1 file2 > file.patch
@@ -127,6 +124,12 @@
     # remove head and tail banners
     cat ssh.key | tail -n +2 | head -n -1
 
+    # stip of file count header
+    echo "12) Title" | sed 's/[[:digit:]]\+)\s//g'
+
+    # show files omit .exe ones
+    ls -l | grep -vE '.exe'
+
 # sorting
 
     # remove duplicate lines
@@ -137,6 +140,14 @@
 
     # unique list based on column 1 and 3 (todo to lower case or different)
     sort -u -t : -k 1,1 -k 3,3 test.txt
+
+# conditions
+
+    # check if command exists
+    command=`which mycmd`
+    if [ -z "$command" ]; then
+        echo "Command not found"
+    fi
 
 # functions
 
