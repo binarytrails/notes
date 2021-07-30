@@ -70,6 +70,16 @@
     # find processes who are using the files
     find <folder> -print0 | xargs -0 lsof -n
 
+    # findings systemd unit files
+    $ systemctl list-unit-files ssh*
+    UNIT FILE           STATE    VENDOR PRESET
+    sshd.service        disabled disabled
+    sshdgenkeys.service static   -
+
+    $ systemctl list-units --all tmp*
+    UNIT      LOAD   ACTIVE SUB     DESCRIPTION
+    tmp.mount loaded active mounted Temporary Directory /tmp
+
 # finding
 
     # something inside all directory files
@@ -184,10 +194,10 @@
 
     # create file on target
     nc -vlpn 6666 > mybin
-    
+
     # execute on target on connect
     nc -vlpn 6666 -e /bin/bash
-    
+
     # send from source
     nc -vn <ip> 6666 < mybin
 
