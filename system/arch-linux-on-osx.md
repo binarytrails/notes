@@ -275,6 +275,7 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
 
 10. Configure the early user space enviroment a.k.a. ramdisk.
 
+        pacman -S mkinitcpio linux
         vim /etc/mkinitcpio.conf
 
     Insert into *HOOKS* between the words *encrypt* and *filesystems* where *encypt* is before *filesystems*.
@@ -289,6 +290,7 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
 
 11. Configure GRUB bootloader with encrypted root
 
+        pacman -S grub
         vim /etc/default/grub
 
     Change this line to make it look like this
@@ -357,7 +359,7 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
 
     If you're planning to use **wifi-menu** instead of the ethernet cable for further installations after booting into your system, you should install its dependencies right away.
 
-        pacman -S dialog wpa_supplicant
+        pacman -S dialog wpa_supplicant iwd
 
     Now you can safely exit the chroot, unmount your partitions and reboot into your new fresh system.
 
