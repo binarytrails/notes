@@ -420,6 +420,10 @@ In this section, I will help you get started with a basic **G**raphical **U**ser
 
             pacman -S sudo
 
+    If you get `... and have the setuid bit set ...` error, do:
+
+            chmod u+s /usr/bin/sudo
+
     To open this file you have do the following with the editor of your choice. Mine is vim.
 
             EDITOR=vim visudo
