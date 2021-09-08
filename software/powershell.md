@@ -98,3 +98,14 @@
 
     Get-WinEvent -ListLog * | Format-List -Property LogName
     (Get-WinEvent -ListLog Security).ProviderNames
+
+## dll
+
+    # get dll exports
+    dumpbin.exe /EXPORTS my.dll
+
+    # find dumpbin (comes with visual studio)
+    Get-ChildItem / -name -recurse dumpbin.exe
+
+    # add dumpbin to env path
+    $Env:path += ";C:\Program Files (x86)\Microsoft Visual Studio XX.Y\VC\bin\amd64"
