@@ -9,6 +9,21 @@
     Start-Process .\myexe.exe -Verb runAs
     Start-Process powershell -Verb runAs
 
+    # get process list
+    Get-Process
+    Get-Process | find-str \i "svchost"
+
+## finding
+
+    # find by case insensitive keyword
+    findstr /? | findstr \i "color"
+
+    # grep in files for a case insensitive string
+    findstr /spin "mystring" /*
+
+    # find a filename in drive
+    Get-ChildItem C:\ -name -recurse something/
+
 ## env
 
     # gets the windows logical drives on the computer, drives mapped to network shares
@@ -56,13 +71,6 @@
 
     # tail
     cat file.txt -Tail 10
-
-    # grep -rni
-    findstr /spin "mystring" /*
-
-    # find / -name *toto*
-    where /r c:\ my.exe
-    Get-ChildItem c:\ -name -recurse something/
 
     # extract archive
     Expand-Archive file.zip -Destination /myfile
