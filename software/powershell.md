@@ -13,6 +13,9 @@
     Get-Process
     Get-Process | find-str \i "svchost"
 
+    # kill a process
+    taskkill /f /pid <pid>
+
 ## finding
 
     # find by case insensitive keyword
@@ -117,3 +120,17 @@
 
     # add dumpbin to env path
     $Env:path += ";C:\Program Files (x86)\Microsoft Visual Studio XX.Y\VC\bin\amd64"
+
+    [Environment]::SetEnvironmentVariable("Path",[Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\VC\Tools\MSVC\<version>\bin\HostX64\x64","User")
+
+## resources
+
+    # monitor cpu and ram percentage usage
+    $totalRam = (Get-CimInstance Win32_PhysicalMemory | Measure-Object -Property capacity -Sum).Sum
+    while($true) {
+        $date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+        $cpuTime = (Get-Counter '\Processor(_Total)\% Processor Time').CounterSamples.CookedValue
+        $availMem = (Get-Counter '\Memory\Available MBytes').CounterSamples.CookedValue
+        $date + ' > CPU: ' + $cpuTime.ToString("#,0.000") + '%, Avail. Mem.: ' + $availMem.ToString("N0") + 'MB (' + (104857600 * $availMem / $totalRam).ToString("#,0.0") + '%)'
+        Start-Sleep -s 2
+    }
