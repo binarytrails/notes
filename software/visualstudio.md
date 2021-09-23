@@ -15,7 +15,7 @@
 
 3. Add compiled library to linker path
 
-    Linker → Additional Dependencies → mylib.lib
+    Linker → Input → Additional Dependencies → mylib.lib
 
 ### include everything
 
