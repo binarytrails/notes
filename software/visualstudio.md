@@ -28,3 +28,8 @@ For this we need to:
 2. Set it to /MT (use the multithread, static version of the run-time library)
 
 https://docs.microsoft.com/en-us/cpp/build/reference/md-mt-ld-use-run-time-library?view=msvc-160
+
+### disable treat warnings as errors
+
+    Project properties -> configurations properties -> C/C++ -> treats warning as error -> No (/WX-)
+
