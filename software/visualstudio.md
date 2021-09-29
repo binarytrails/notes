@@ -33,3 +33,6 @@ https://docs.microsoft.com/en-us/cpp/build/reference/md-mt-ld-use-run-time-libra
 
     Project properties -> configurations properties -> C/C++ -> treats warning as error -> No (/WX-)
 
+### remove secure warnings (_CRT_SECURE_NO_WARNINGS)
+
+    #pragma warning(disable:4996)
