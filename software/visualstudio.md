@@ -2,6 +2,22 @@
 
 ## c++
 
+### get latest
+
+    # install package manager as admin
+    Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+    # install the 2019 one
+    choco install -y visualstudio2019community
+
+### setup build tools
+
+    # install .NET core and build tools
+    choco install visualstudio2019buildtools --package-parameters "--allWorkloads --includeRecommended --includeOptional --passive --locale en-US"
+
+    # restart powershell and it will remain in path
+    [Environment]::SetEnvironmentVariable("Path",[Environment]::GetEnvironmentVariable("Path", "User") + ";C:\Program Files (x86)\Microsoft Visual Studio\2019\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin","User")
+
 ### add library
 
 1. Add libarary headers (.h,.hpp) into your lib folder
