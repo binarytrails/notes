@@ -5,6 +5,15 @@
     # start from cmd.exe
     start powershell
 
+    # bypass [e]xecution [p]olicy
+    powershell.exe -ep bypass
+
+    # install powershell script
+    . .\script.ps1
+
+    # become domain user
+    runas /u:<domain>.local\<user> /netonly powershell.exe
+
     # run as administrator
     Start-Process .\myexe.exe -Verb runAs
     Start-Process powershell -Verb runAs
