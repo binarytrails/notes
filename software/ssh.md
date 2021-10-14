@@ -34,3 +34,12 @@ use the tunnel
 
     # make sure the user matches the public key in ~/.ssh/authorized_keys on remote server
     ssh user@localhost -p 6666  -i ~/.ssh/private-key uname -a
+
+## gather data and run
+
+    ssh host > host.log << EOF
+    help
+    pwd
+    uname -a
+    ps auxf
+    EOF
