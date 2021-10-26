@@ -1,5 +1,10 @@
 # windows
 
+## shortcuts
+
+    win  + shift + s        select space to screenshot
+    ctrl + shift + x        cross a word in text
+
 ## common places
 
      c:\windows\system32\drivers\etc\hosts
