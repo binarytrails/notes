@@ -8,11 +8,12 @@
     # bypass [e]xecution [p]olicy
     powershell.exe -ep bypass
 
-    # install powershell script
+    # disable security to install powershell script
+    Set-ExecutionPolicy Bypass -Scope Process -Force;
     . .\script.ps1
 
     # become domain user
-    runas /u:<domain>.local\<user> /netonly powershell.exe
+    runas /user:<domain>.local\<user> /netonly powershell.exe
 
     # run as administrator
     Start-Process .\myexe.exe -Verb runAs
