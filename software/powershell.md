@@ -26,6 +26,12 @@
     # kill a process
     taskkill /f /pid <pid>
 
+    # get file content
+    $text = Get-Content .\file.txt -Raw
+
+    # output variable to file
+    $text | Out-File c:\output.txt
+
 ## finding
 
     # find by case insensitive keyword
@@ -36,6 +42,9 @@
 
     # find a filename in drive
     Get-ChildItem C:\ -name -recurse something/
+
+    # find a specific extension
+    Get-ChildItem -Path .\ -Filter *.ico -Recurse -File
 
 ## env
 
