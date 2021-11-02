@@ -107,3 +107,26 @@ temporary in settings:
 permanetly in policies:
 
     gpedit.msc > Local Group Policy Editor > Computer Configuration > Administrative Templates > Windows Components > Microsoft Defender Antivirus > Double-click the Turn off Microsoft Defender Antivirus policy > Select the Enabled option to disable Microsoft Defender Antivirus
+
+## password reset through automatic repair
+
+1. reboot a couple of times and hard reboot during the wheel turning manually with your hands
+1. otherwise, get a usb with windows 10 and go into repair by booting the usb key
+2. now, follow this path / actions
+
+        automatic repair -> advanced options -> troubleshoot -> advanced option ->
+        system image recovery (cancel) -> select a system image -> advanced -> install driver ->
+        cd C:\Windows\System32\ -> rename "utilman" to "utilmana" -> go up and back (to update view) ->
+        rename "cmd" to "utilman" -> continue to exit and reboot
+
+3. click on middle icon of helper utils of easy of access
+
+        **bom** popped a cmd.exe shell~!
+
+4. enter these commands to change the password
+
+    net user
+    net user <user> *
+
+5. enjoy your account recovery
+6. consider renaming the utilman and utilmana to their respective names.
