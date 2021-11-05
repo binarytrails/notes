@@ -1,10 +1,19 @@
 # powershell
 
+## general
+
+    Get-Host
+    $PSVersionTable
+    systeminfo
+
 ## process
 
     # start from cmd.exe
     start powershell
 
+    # downgrade to v2
+    powershell -v 2
+    
     # bypass [e]xecution [p]olicy
     powershell.exe -ep bypass
 
@@ -153,3 +162,14 @@
         $date + ' > CPU: ' + $cpuTime.ToString("#,0.000") + '%, Avail. Mem.: ' + $availMem.ToString("N0") + 'MB (' + (104857600 * $availMem / $totalRam).ToString("#,0.0") + '%)'
         Start-Sleep -s 2
     }
+
+## obfuscation
+
+    # command in base64
+    $b=[Convert]::ToBase64String([Text.encoding]::UTF8.GetBytes("ls")
+    [Text.encoding]::UTF8.GetString([Convert]::FromBase64String("$b")) |  Invoke-Expression
+
+    # binary in base64
+    $bin=cat bin.exe
+    $b=[Convert]::ToBase64String([Text.encoding]::UTF8.GetBytes($bin))
+    [Reflection.Assembly]::Load([Convert]::FromBase64String($b))
