@@ -169,7 +169,14 @@
     $b=[Convert]::ToBase64String([Text.encoding]::UTF8.GetBytes("ls")
     [Text.encoding]::UTF8.GetString([Convert]::FromBase64String("$b")) |  Invoke-Expression
 
-    # binary in base64
+    # binary to base64 to execution (meant to be loadable directly)
     $bin=cat bin.exe
     $b=[Convert]::ToBase64String([Text.encoding]::UTF8.GetBytes($bin))
     [Reflection.Assembly]::Load([Convert]::FromBase64String($b))
+    
+    # binary to base64 to execution (manual entry calling in binary assembly)
+    $b64=[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("C:\bin.exe"))
+    $assembly=[Reflection.Assembly]::Load([System.Convert]::FromBase64String($b64))
+    [System.Reflection.Assembly]::Load($assembly) | Format-List
+    $entryPointMethod = $assembly.GetType('MyNamespace.MyProgram', [Reflection.BindingFlags] 'Public, NonPublic').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
+    $entryPointMethod.Invoke($null, (, [string[]] ('argument1')))
