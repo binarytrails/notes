@@ -180,3 +180,8 @@
     [System.Reflection.Assembly]::Load($assembly) | Format-List
     $entryPointMethod = $assembly.GetType('MyNamespace.MyProgram', [Reflection.BindingFlags] 'Public, NonPublic').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
     $entryPointMethod.Invoke($null, (, [string[]] ('argument1')))
+
+## download and install
+
+    $url="<url-to-Invoke-Command.ps1>"
+    Invoke-Expression -Command '[System.Net.ServicePointManager]::ServerCertificateValidationCallback = {$true}'; iex(new-object net.webclient).downloadstring($url)
