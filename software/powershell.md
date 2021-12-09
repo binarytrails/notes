@@ -5,6 +5,9 @@
     Get-Host
     $PSVersionTable
     systeminfo
+    net user
+    whoami
+    whoami /priv
 
 ## process
 
@@ -20,6 +23,10 @@
     # disable security to install powershell script
     Set-ExecutionPolicy Bypass -Scope Process -Force;
     . .\script.ps1
+
+    # run notepad as admin
+    runas /user:administrator notepad
+    runas /user:administrator /savecred notepad
 
     # become domain user
     runas /user:<domain>.local\<user> /netonly powershell.exe
