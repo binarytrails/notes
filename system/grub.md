@@ -59,6 +59,7 @@ During GNU GRUB boot:
     1. press e instead of enter
     2. scroll down in emacs-like screen editing to line starting with linux
     3. append in the end after usually quiet: init=/bin/bash
+    4. press F10 or ctrl+x to boot
 
 This way even if the gui fails you will boot into root bash and you can disable it to reboot and fix it.
 
