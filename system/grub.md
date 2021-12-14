@@ -1,4 +1,6 @@
-# 1. Preconfigure
+# Setup
+
+## Preconfigure
 
 Configure GRUB bootloader with encrypted root
 
@@ -18,9 +20,9 @@ And this line
 
 [Read more](https://wiki.archlinux.org/index.php/GRUB#Additional_arguments)
 
-# 2. Install
+## Install
 
-## x86_64 with EFI
+### x86_64 with EFI
 
     modprobe dm-mod     # not always needed if not found move along
 
@@ -28,17 +30,17 @@ And this line
     mkdir -p /boot/grub/locale
     cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 
-## i386 without EFI
+### i386 without EFI
 
     grub-install --target=i386-pc --recheck /dev/sdx
 
-# 3. Generate config
+## Generate config
 
     grub-mkconfig -o /boot/grub/grub.cfg
 
 [Read more](https://wiki.archlinux.org/index.php/MacBook#Installing_GRUB_to_EFI_partition_directly)
 
-# 4. Verify
+## Verify
 
 Find your devices UUID's
 
@@ -48,3 +50,16 @@ Verify by looking for UUID of your cryptroot and root inside. These are simple c
 
     vim -R grub.cnf
 
+# Issues
+
+## UI blank/error screen
+
+During GNU GRUB boot:
+
+    1. press e instead of enter
+    2. scroll down in emacs-like screen editing to line starting with linux
+    3. append in the end after usually quiet: init=/bin/bash
+
+This way even if the gui fails you will boot into root bash and you can disable it to reboot and fix it.
+
+Helps to solve issues like this: https://bugs.launchpad.net/ubuntu/+source/gnome-session/+bug/1274013
