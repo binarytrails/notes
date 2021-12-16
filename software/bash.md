@@ -65,6 +65,11 @@
     # get filename no extension
     "${pkey%.*}"
 
+# archives
+
+    # create an archive with everything in dir1 and ignore the others ones
+    zip -r myarchive.zip dir1/* -x dir1/ignoreDir1/**\* dir1/ignoreDir2/**\*
+
 # ps
 
     # find processes who are using the files
