@@ -9,6 +9,14 @@
     chmod 600 .ssh/authorized_keys
     # add one public key per line
 
+## formats
+
+    ssh-keygen -t rsa           # -----BEGIN OPENSSH PRIVATE KEY----- which new format
+    ssh-keygen -t rsa -m PEM    # -----BEGIN RSA PRIVATE KEY----- which is old format
+
+    # convert new format to old format (will overwrite private key passed to -f and set empty pwd)
+    ssh-keygen -p -N "" -m pem -f /path/to/key
+
 ## local forwading
 
 build the tunnel
