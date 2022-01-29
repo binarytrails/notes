@@ -156,6 +156,9 @@
     # unique list based on column 1 and 3 (todo to lower case or different)
     sort -u -t : -k 1,1 -k 3,3 test.txt
 
+    # count file extensions
+    tree -L 2 | sed -n 's/..*\.//p' | sort | uniq -c
+
 # conditions
 
     # check if command exists
