@@ -88,3 +88,8 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
 It means you're in scale mode, to get out:
 
     Host + c
+
+## Linux Shared Folder: Permission denied
+
+    sudo usermod -aG vboxsf $(whoami)
+    # logout/login
