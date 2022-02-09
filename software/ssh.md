@@ -3,11 +3,12 @@
     # no matching key exchange method found. Their offer: diffie-hellman-group1-sha1
     ssh -oKexAlgorithms=+diffie-hellman-group1-sha1 ...
 
-## authorise keys
+## authorized_keys
 
     chmod 700 .ssh
-    chmod 600 .ssh/authorized_keys
-    # add one public key per line
+    chmod 600 .ssh/authorized_keys      # add one public key per line
+
+    ssh-copy-id user@host               # copy public key to remote authorized_keys
 
 ## formats
 
