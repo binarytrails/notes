@@ -156,8 +156,11 @@
     # unique list based on column 1 and 3 (todo to lower case or different)
     sort -u -t : -k 1,1 -k 3,3 test.txt
 
-    # count file extensions
+    # count file extensions with ls
     tree -L 2 | sed -n 's/..*\.//p' | sort | uniq -c
+
+    # count file extensions with smb ls
+    cat smb-recursive-ls.log | grep ' A ' | sed -n 's/..*\.//p' | sed 's/\ .*$//' | sort -u | uniq
 
 # conditions
 
