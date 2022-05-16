@@ -3,6 +3,7 @@
     rm -R /etc/pacman.d/gnupg
     pacman-key --init
     pacman-key --populate archlinux
+    pacman-key --populate blackarch
 
 # "Failed to commit transaction (invalid or corrupted package)" error
 
