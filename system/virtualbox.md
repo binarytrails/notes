@@ -47,6 +47,11 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
 
     VBoxManage internalcommands createrawvmdk -filename usb_sdc.vmdk -rawdisk /dev/sdc
 
+## Mount VDI as ISO
+
+    VBoxManage clonehd --format RAW ubuntu.vdi ubuntu.img
+    mount -t ext3 -o loop,rw ./ubuntu.img /mnt
+
 ## Install Guess Additions
 
     $ pacman -S virtualbox-guest-iso
