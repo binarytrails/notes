@@ -5,6 +5,10 @@
     pacman-key --populate archlinux
     pacman-key --populate blackarch
 
+# error: key "XXXX" could not be looked up remotely
+
+    sudo pacman -Sy archlinux-keyring
+
 # "Failed to commit transaction (invalid or corrupted package)" error
 
     find /var/cache/pacman/pkg/ -iname "*.part" -exec rm {} \;
