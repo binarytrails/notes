@@ -1,5 +1,15 @@
 # AUR (Arch User Repository)
 
+## Installing AUR Package Manager
+
+    sudo pacman -Sy --needed git base-devel
+    mkdir build; cd build
+
+    # yay
+    git clone https://aur.archlinux.org/yay-git.git
+    cd yay-git
+    makepkg -si
+
 ## Creating package repositories
 
 **If you are creating a new package from scratch, establish a local Git repository and an AUR remote by cloning the intended pkgbase. If the package does not yet exist, the following warning is expected:**
