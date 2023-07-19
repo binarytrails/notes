@@ -2,6 +2,14 @@
 
 ## Light-weight
 
+### ss
+
+    # log new connections excluding the unspecified address
+    watch -n1 "ss -ltpa | grep -v 0.0.0.0 | tee -a ss.log"
+
+    # monitor in live State, Peer Address:Port and Process
+    watch -n1 "cat ss.log | grep -e ESTAB -e LISTEN | grep -v "*:*" | awk '{print \$1,\$5,\$6}' | sort | uniq"
+
 ### iptables
 
     # setup
