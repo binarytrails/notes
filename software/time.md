@@ -3,10 +3,12 @@
 ## system time
 
     timedatectl status
+    systemctl start systemd-timesyncd.service --now
 
     # find / set timezone
     timedatectl list-timezones |  egrep  -o “America/N.*”
     timedatectl set-timezone “Asia/Kolkata”
+    timedatectl set-timezone Canada/Eastern # or
 
     # manually specify date / time
     timedatectl set-time "2020-01-02 07:51:00"
@@ -34,6 +36,8 @@
 
 ## E: Release file for ... is not valid yet
 
+    timedatectl status
+    systemctl start systemd-timesyncd.service --now
     sudo timedatectl set-timezone Canada/Eastern
     timedatectl status
     sudo timedatectl set-ntp on
