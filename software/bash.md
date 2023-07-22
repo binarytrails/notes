@@ -109,6 +109,9 @@
     # loop over files with spaces
     find . -type f -name "*.priv" -print0 | while IFS= read -r -d '' file; do echo "$file"; done
 
+    # find all ip addresses
+    grep -roE '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' .
+
 # formatting
 
     # make a patch
