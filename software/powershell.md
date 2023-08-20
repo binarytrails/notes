@@ -9,6 +9,11 @@
     whoami
     whoami /priv
 
+## locations
+
+    # history (arrow-up)
+    $env:AppData\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+
 ## process
 
     # start from cmd.exe
