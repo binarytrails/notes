@@ -15,5 +15,6 @@
     # multiple greps
     cat file.html | grep -e first -e second
 
-    # extract ips
-    grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' file.txt
+    # extract ips, keep uniques only and sort them in ascending order
+    grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' file.txt | sort -u | sort -n -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4
+
