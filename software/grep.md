@@ -14,3 +14,6 @@
 
     # multiple greps
     cat file.html | grep -e first -e second
+
+    # extract ips
+    grep -o '[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}\.[0-9]\{1,3\}' file.txt
