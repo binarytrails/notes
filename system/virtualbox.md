@@ -16,11 +16,6 @@ Install the dependencies
 
     apt-get install -y dkms build-essential linux-headers-generic linux-headers-$(uname -r)
 
-*Unable to run them or they are nowhere to be found?*
-Sadly, they never worked for me out of the box.
-
-    Devices menu > Install Guest Additions CD Image
-
 If it throws an error it means that in most of the cases that they are already inserted.
 In the vbox machine, open a terminal and locate them. They should be at [sr0].
 
@@ -57,6 +52,10 @@ You must boot virtualbox as root to have access to [sdX] or play with privileges
     $ pacman -S virtualbox-guest-iso
     $ pacman -Ql virtualbox-guest-iso
     virtualbox-guest-iso /usr/lib/virtualbox/additions/VBoxGuestAdditions.iso
+
+or these modern days:
+    
+    Devices menu > Insert Guest Addition CD Image.. > Download
 
 ## Usb not detected
 
