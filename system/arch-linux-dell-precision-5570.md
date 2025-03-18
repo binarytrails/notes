@@ -1,33 +1,7 @@
 # Archlinux on DELL Precision 5570
 *27 Feburary 2025* 
 
-> What ArchLinux? ArchLinux x86_64.
-
-
-# What are my motivations?
-
-1. Help curious minds to get into something delightful.
-2. ArchLinux is one level deeper diving into Linux.
-3. MacBook laptops are the most aesthetic in the 2010s market.
-
-
-# Results
-
-![img](/static/frontend/img/articles/Arch Linux On Macbook.jpg)
-
-
-# Guide Flow
-
-I am assuming that you are aware of what you are doing. Hence, there is no one to blame but yourself for the destruction of your system.
-
-You should have had read or have the [ArchLinux MacBook wiki page](https://wiki.archlinux.org/index.php/MacBook) open in a separate tab.
-
-Take this as an example and a proof of concept.
-
-The ArchLinux wiki is tremendous and the community on freenode servers is great. But remember...
-
-> [The ArchLinux Mentality](/static/frontend/img/svg/Arch Linux Help Guide.svg)
-
+https://wiki.archlinux.org/title/Dell_Precision_5570
 
 # Table of content
 
@@ -291,9 +265,10 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
 
     [Read more](https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#cryptdevice)
 
-    And this line
+    Since Linux 5.8 or more has issue with 11th intel CPU generation and +,  please add `ibt=off` as following GRUB env variable.
 
-        GRUB_CMDLINE_LINUX_DEFAULT="quiet splash"
+    vim /etc/default/grub
+    GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash ibt=off"
 
     > The presence of the word **splash** enables the splash screen with condensed text output. Adding the parameter **quiet** will only show the splash screen. In order to enable the *normal* text start up, you should remove both of these.
 
@@ -302,7 +277,6 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
     Install the bootloader
 
         modprobe dm-mod     # not always needed if not found move along
-        
         grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch_grub --recheck --debug
         mkdir -p /boot/grub/locale
         cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
@@ -310,8 +284,6 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
     Generate a configuration 
 
         grub-mkconfig -o /boot/grub/grub.cfg
-
-    [Read more](https://wiki.archlinux.org/index.php/MacBook#Installing_GRUB_to_EFI_partition_directly)
 
     Find your devices UUID's
 
@@ -347,27 +319,15 @@ As was previously done, the cryptroot is mounted at /mnt. Let's create directori
         /dev/mapper/crypthome		/home		ext4		defaults		    0       2
         ...
 
-13. Don't forget to set a password to root.
-
-```bash
-passwd <username>
-```
-
-14. Since Linux 5.8 or more has issue with 11th intel CPU generation and +,  please add `ibt=off` as following GRUB env variable.
-
-```bash
-vim /etc/default/grub
-```
-
-```bash
-GRUB_CMDLINE_LINUX_DEFAULT="loglevel=3 quiet splash ibt=off"
-```
-
 15. Last notes
 
     If you're planning to use **wifi-menu** instead of the ethernet cable for further installations after booting into your system, you should install its dependencies right away.
 
         pacman -S dialog wpa_supplicant iwd
+    
+    Change Root password since there is no default set:
+
+        chpwd root
 
     Now you can safely exit the chroot, unmount your partitions and reboot into your new fresh system.
 
@@ -387,7 +347,7 @@ Welcome to your new system!
 
 In this section, I will help you get started with a basic **G**raphical **U**ser **I**nterface and a basic system configuration using Gnome 3.
 
-1. Get your MacBook Arch drivers
+1. Get your Dell Precision 5570 Arch drivers
 
     Graphic card
     
@@ -397,9 +357,6 @@ In this section, I will help you get started with a basic **G**raphical **U**ser
     Touchpad
 
         pacman -S xf86-input-synaptics
-
-    Everything else worked out of the box. Otherwise, go to the [post-installation](https://wiki.archlinux.org/index.php/MacBook#Post-installation) section.
-
         reboot
 
 2. Get Gnome 3
@@ -454,44 +411,11 @@ In this section, I will help you get started with a basic **G**raphical **U**ser
 
         pacman -S --needed base-devel
 
-    I succeeded with [broadcom-wl](https://aur.archlinux.org/packages/broadcom-wl/) that is in AUR. For other WIFI drivers -> [Read More](https://wiki.archlinux.org/index.php/MacBook#Wi-Fi).
-
-        mkdir ~/Builds && cd ~/Builds
-
-    Under Package Actions > Download tarball , save it to ~/Builds.
-
-        mkdir broadcom-wl
-        tar xvf broadcom-wl.tar.gz broadcom-wl/
-
-    Read the PKGBUILD file carefully because shell commands will be executed from it.
-
-        cd broadcom-wl/ && vim -R PKGBUILD
-
-    Makepkg and **-s** will resolve all of its dependecies.
-
-        makepkg -s PKGBUILD
-
-    Install the driver.
-
-        pacman -U broadcom-wl.tar.xz
-
-    Unload other conflicting modules.
-
-        rmmod b43
-        rmmod ssd
-
-    Load the wl module.
-
-        modprobe wl
+    Load the Network Manager module of Gnome Shell
+    
         systemctl enable NetworkManager.service
 
-    Make sure to have the **networkmanager** package installed & to enable **N**etwork**M**anager.service. It is case sensitive!
-
-    If you have **dhcpcd.service** running it will cause a disconnection after association with an access point on wifi.
-
-    [Read More](https://wiki.archlinux.org/index.php/Broadcom_BCM4312#Loading_the_wl_kernel_module)
-
-5. Add transparency to windows
+6. Add transparency to windows
 
     Devilspie is THE tool to use. It works with S-expressions.
 
