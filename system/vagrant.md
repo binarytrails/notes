@@ -73,3 +73,30 @@ they are loaded from ```/etc/profile.d/``` each time
        chmod 644 authorized_keys
        wget https://raw.githubusercontent.com/hashicorp/vagrant/master/keys/vagrant.pub --no-check-certificate
        cat vagrant.pub > authorized_keys
+
+# vagrant plugin installation broken
+```
+$ vagrant plugin install vagrant-reload
+Installing the 'vagrant-reload' plugin. This can take a few minutes...
+Vagrant failed to properly resolve required dependencies. These
+errors can commonly be caused by misconfigured plugin installations
+or transient network issues. The reported error is:
+
+conflicting dependencies json (= 2.7.2) and json (= 2.9.0)
+  Activated json-2.9.0
+  which does not match conflicting dependency (= 2.7.2)
+
+  Conflicting dependency chains:
+    json (= 2.9.0), 2.9.0 activated
+
+  versus:
+    json (= 2.7.2)
+
+  Gems matching json (= 2.7.2):
+    json-2.7.2
+
+$ VAGRANT_DISABLE_STRICT_DEPENDENCY_ENFORCEMENT=1 vagrant plugin install  vagrant-reload
+Installing the 'vagrant-reload' plugin. This can take a few minutes...
+Fetching vagrant-reload-0.0.1.gem
+Installed the plugin 'vagrant-reload (0.0.1)'!
+```
