@@ -18,3 +18,10 @@
     newaliases
     mailx -s Test root
     mail
+
+## convert outlook msg to linux readable eml
+
+    pacman -S perl-email-address
+    yay -S perl-email-outlook-message
+    for f in *.msg; do perl /usr/bin/vendor_perl/msgconvert "$f"; done
+    grep -rni something *.eml
