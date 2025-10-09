@@ -20,3 +20,6 @@
 
     # grep urls only
     grep -Eo '(http|https)://[^/"]+' file.txt
+
+    # grep only after found keyword
+    grep -oP -ri --no-filename "title\K.*" file.txt
